@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
-func IsPrime(number uint64) bool {
+func IsPrime(number uint) bool {
 	count := 0
-	for i := uint64(2); i < number; i++ {
+	for i := uint(2); i < number; i++ {
 		if number % i == 0 {
 			count++
 			break
@@ -16,20 +17,57 @@ func IsPrime(number uint64) bool {
 	return count == 0
 }
 
-func Factor(i uint64) uint64 {
-	if i < 4 {
-		return i
-	}
-
-	greater := i
-
-	for j := greater; j >= 2; j-- {
-		if IsPrime(j) && i % j == 0 {
-			return j
+func Generate() chan uint {
+	channel := make(chan uint)
+	go func(){
+		for i := uint(2); ; i++ {
+			channel <- i
 		}
+	}()
+	return channel
+}
+
+func FilterPrimesOnly(inChannel chan uint, prime uint) chan uint {
+	outChannel := make(chan uint)
+	go func(){
+		for {
+			i := <-inChannel
+			if i % prime != 0 {
+				outChannel <- i
+			}
+		}
+	}()
+	return outChannel
+}
+
+func Sieve(number float64) chan uint {
+	channel := make(chan uint)
+
+	go func() {
+		ch := Generate()
+		for {
+			prime := <-ch
+			channel <- prime
+			ch = FilterPrimesOnly(ch, prime)
+		}
+	}()
+
+	greater := uint(number)
+	square := uint(math.Sqrt(number))
+	for i := uint(1); i <= square; i++ {
+		prime := <-channel
+		if prime > square {
+			break
+		}
+		greater = prime
 	}
 
-	return greater
+	return channel
+}
+
+func Factor(i float64) uint {
+	Sieve(i)
+	return uint(i)
 }
 
 func main() {

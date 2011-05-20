@@ -5,7 +5,7 @@ import (
 )
 
 type PrimeTest struct {
-	number uint64
+	number uint
 	isPrime bool
 }
 
@@ -28,7 +28,8 @@ func TestPrime(t* testing.T) {
 }
 
 type FactorTest struct {
-	in, out uint64
+	in float64
+	out uint
 }
 
 var FactorTests = []FactorTest{
