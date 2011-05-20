@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
-
 func IsPrime(number int) bool {
 	count := 0
 	for i := 2; i < number; i++ {
@@ -22,10 +17,13 @@ func Factor(i int) int {
 		return i
 	}
 
-	greater := int(math.Sqrt(float64(i)))
-	fmt.Println(greater)
-	return greater
-}
+	greater := i
 
-func main() {
+	for j := greater; j >= 2; j-- {
+		if IsPrime(j) && i % j == 0 {
+			return j
+		}
+	}
+
+	return greater
 }

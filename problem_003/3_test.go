@@ -35,6 +35,10 @@ var FactorTests = []FactorTest{
 	FactorTest{2, 2},
 	FactorTest{3, 3},
 	FactorTest{8, 2},
+	FactorTest{9, 3},
+	FactorTest{18, 3},
+	FactorTest{35, 7},
+	FactorTest{500, 5},
 }
 
 func TestFactor(t *testing.T) {
