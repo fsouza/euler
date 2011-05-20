@@ -40,15 +40,17 @@ func Sieve(number float64) chan uint {
 		}
 	}()
 
-	greater := uint(number)
 	square := uint(math.Sqrt(number))
-	for i := uint(1); i <= square; i++ {
-		prime := <-channel
-		if prime > square {
-			break
+	primesToCheck := make(chan uint)
+	go func(){
+		for i := uint(1); i <= square; i++ {
+			prime := <-channel
+			if prime > square {
+				break
+			}
+			primesToCheck <- prime
 		}
-		greater = prime
-	}
+	}()
 
 	return channel
 }
