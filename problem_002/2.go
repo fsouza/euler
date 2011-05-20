@@ -17,7 +17,6 @@ func main() {
 	fibo := 0
 	for i := 0; fibo <= 4000000; i++ {
 		fibo = Fibonacci(i)
-		fmt.Println(fibo)
 		if fibo % 2 == 0 {
 			sum += fibo
 		}
