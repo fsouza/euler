@@ -5,10 +5,10 @@ import (
 	"math"
 )
 
-func Generate() chan uint {
+func Generate(number uint) chan uint {
 	channel := make(chan uint)
 	go func(){
-		for i := uint(2); ; i++ {
+		for i := uint(2); i <= number; i++ {
 			channel <- i
 		}
 	}()
@@ -29,26 +29,18 @@ func FilterPrimesOnly(inChannel chan uint, prime uint) chan uint {
 }
 
 func Sieve(number float64) chan uint {
-	channel := make(chan uint)
+	square := uint(math.Sqrt(number))
 
+	channel := make(chan uint)
 	go func() {
-		ch := Generate()
+		ch := Generate(uint(number))
 		for {
 			prime := <-ch
 			channel <- prime
-			ch = FilterPrimesOnly(ch, prime)
-		}
-	}()
-
-	square := uint(math.Sqrt(number))
-	primesToCheck := make(chan uint)
-	go func(){
-		for i := uint(1); i <= square; i++ {
-			prime := <-channel
-			if prime > square {
+			if  prime > square {
 				break
 			}
-			primesToCheck <- prime
+			ch = FilterPrimesOnly(ch, prime)
 		}
 	}()
 
