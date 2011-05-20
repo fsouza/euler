@@ -1,8 +1,12 @@
 package main
 
-func IsPrime(number int) bool {
+import (
+	"fmt"
+)
+
+func IsPrime(number uint64) bool {
 	count := 0
-	for i := 2; i < number; i++ {
+	for i := uint64(2); i < number; i++ {
 		if number % i == 0 {
 			count++
 			break
@@ -12,7 +16,7 @@ func IsPrime(number int) bool {
 	return count == 0
 }
 
-func Factor(i int) int {
+func Factor(i uint64) uint64 {
 	if i < 4 {
 		return i
 	}
@@ -26,4 +30,8 @@ func Factor(i int) int {
 	}
 
 	return greater
+}
+
+func main() {
+	fmt.Println(Factor(600851475143))
 }
