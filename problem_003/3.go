@@ -5,18 +5,6 @@ import (
 	"math"
 )
 
-func IsPrime(number uint) bool {
-	count := 0
-	for i := uint(2); i < number; i++ {
-		if number % i == 0 {
-			count++
-			break
-		}
-	}
-
-	return count == 0
-}
-
 func Generate() chan uint {
 	channel := make(chan uint)
 	go func(){
