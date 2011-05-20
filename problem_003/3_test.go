@@ -34,6 +34,7 @@ type FactorTest struct {
 var FactorTests = []FactorTest{
 	FactorTest{2, 2},
 	FactorTest{3, 3},
+	FactorTest{8, 2},
 }
 
 func TestFactor(t *testing.T) {
