@@ -23,7 +23,7 @@ func TestFactor(t *testing.T) {
 	for _, v := range FactorTests {
 		got := Factor(v.in)
 		if got != v.out {
-			t.Errorf("%q != %q", v.out, got)
+			t.Errorf("%q's factor must be %q, but was %q", v.in, v.out, got)
 		}
 	}
 }
