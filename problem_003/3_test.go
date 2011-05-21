@@ -5,14 +5,12 @@ import (
 )
 
 type FactorTest struct {
-	in float64
-	out uint
+	in uint64
+	out uint64
 }
 
 var FactorTests = []FactorTest{
-	FactorTest{2, 2},
 	FactorTest{3, 3},
-	FactorTest{8, 2},
 	FactorTest{9, 3},
 	FactorTest{18, 3},
 	FactorTest{35, 7},
