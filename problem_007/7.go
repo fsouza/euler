@@ -52,5 +52,5 @@ func PrimeAt(position int) int {
 }
 
 func main() {
-	fmt.Println(PrimeAt(1001))
+	fmt.Println(PrimeAt(10001))
 }
