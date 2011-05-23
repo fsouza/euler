@@ -12,4 +12,4 @@ else
     fi
 fi
 
-cd $dir_name && 6g $1.go && 6l -o main.out $1.6 && ./main.out && make clean
+cd $dir_name && 6g $1.go && 6l $1.6 && ./6.out && make clean
