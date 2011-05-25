@@ -26,20 +26,34 @@ func TestConvertGridToString(t *testing.T) {
 	}
 }
 
-func TestProductOfSimpleGrid(t *testing.T) {
+func TestGridProductOfHorizontalLine(t *testing.T) {
 	firstLine := new(vector.IntVector)
 	firstLine.Push(10)
 	firstLine.Push(15)
+	firstLine.Push(5)
+	firstLine.Push(5)
+	firstLine.Push(10)
 
 	secondLine := new(vector.IntVector)
 	secondLine.Push(8)
 	secondLine.Push(5)
+	secondLine.Push(18)
+	secondLine.Push(9)
+	secondLine.Push(105)
 
 	grid := new(vector.Vector)
 	grid.Push(firstLine)
 	grid.Push(secondLine)
 
-	expected := uint(150)
+	for i := 0; i < 3; i++ {
+		line := new(vector.IntVector)
+		for j := 0; j < 5; j++ {
+			line.Push(1)
+		}
+		grid.Push(line)
+	}
+
+	expected := uint(85050)
 	got := GridProduct(grid)
 
 	if expected != got {

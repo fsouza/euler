@@ -10,9 +10,9 @@ func ConvertGridToString(grid *vector.Vector) string {
 
 	for _, lineInterface := range *grid {
 		line := lineInterface.(*vector.IntVector)
-		for _, number := range *line {
+		for j, number := range *line {
 			format = "%d"
-			if number != line.Last() {
+			if j + 1 != line.Len() {
 				format += " "
 			}
 
