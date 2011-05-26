@@ -54,7 +54,7 @@ func TestGridProductOfHorizontalLine(t *testing.T) {
 	}
 
 	expected := uint(85050)
-	got := GridProduct(grid)
+	got := GridProduct(grid, 4)
 
 	if expected != got {
 		t.Errorf("The product for the grid \n\n%s\n\n should be %q, but was %q", ConvertGridToString(grid), expected, got)

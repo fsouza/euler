@@ -27,6 +27,22 @@ func ConvertGridToString(grid *vector.Vector) string {
 	return output
 }
 
-func GridProduct(grid *vector.Vector) uint {
-	return 150;
+func GridProduct(grid *vector.Vector, elements int) uint {
+	var greater, product uint
+
+	for _, lineInterface := range *grid {
+		line := lineInterface.(*vector.IntVector)
+		for i := 0; i < line.Len() - elements + 1; i++ {
+			product = 1
+			for j := i; j < i + elements; j++ {
+				product *= uint(line.At(j))
+			}
+
+			if product > greater {
+				greater = product
+			}
+		}
+	}
+
+	return greater
 }
