@@ -5,6 +5,10 @@ import (
 	"testing"
 )
 
+func Fail(t *testing.T, grid *vector.Vector, expected, got uint) {
+	t.Errorf("The product for the grid \n\n%s\n\n should be %q, but was %q", ConvertGridToString(grid), expected, got)
+}
+
 func TestConvertGridToString(t *testing.T) {
 	firstLine := new(vector.IntVector)
 	firstLine.Push(10)
@@ -57,6 +61,30 @@ func TestGridProductOfHorizontalLine(t *testing.T) {
 	got := GridProduct(grid, 4)
 
 	if expected != got {
-		t.Errorf("The product for the grid \n\n%s\n\n should be %q, but was %q", ConvertGridToString(grid), expected, got)
+		Fail(t, grid, expected, got)
+	}
+}
+
+func TestGridProductOfVerticalLine(t *testing.T) {
+	grid := new(vector.Vector)
+
+	for i := 0; i < 5; i++ {
+		line := new(vector.IntVector)
+		for j := 0; j < 5; j++ {
+			if j == 0 {
+				line.Push(10)
+			} else {
+				line.Push(1)
+			}
+		}
+
+		grid.Push(line)
+	}
+
+	expected := uint(10000)
+	got := GridProduct(grid, 4)
+
+	if expected != got {
+		Fail(t, grid, expected, got)
 	}
 }
