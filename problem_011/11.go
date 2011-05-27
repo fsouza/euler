@@ -3,6 +3,8 @@ package main
 import (
 	"container/vector"
 	"fmt"
+	"strconv"
+	"strings"
 )
 
 func ConvertGridToString(grid *vector.Vector) string {
@@ -25,6 +27,25 @@ func ConvertGridToString(grid *vector.Vector) string {
 	}
 
 	return output
+}
+
+func ReadGridFromString(input string) *vector.Vector {
+	grid := new(vector.Vector)
+	lines := strings.Split(input, "\n", -1)
+
+	for _, line := range lines {
+		lineVector := new(vector.IntVector)
+
+		numbers := strings.Split(line, " ", -1)
+		for _, number := range numbers {
+			number, _ := strconv.Atoi(number)
+			lineVector.Push(number)
+		}
+
+		grid.Push(lineVector)
+	}
+
+	return grid
 }
 
 func GridProduct(grid *vector.Vector, elements int) uint {

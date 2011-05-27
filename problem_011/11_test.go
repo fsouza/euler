@@ -13,6 +13,24 @@ func AssertGridProduct(t *testing.T, grid *vector.Vector, expected uint) {
 	}
 }
 
+func AreGridEquals(grid1, grid2 *vector.Vector) bool {
+	if grid1.Len() != grid2.Len() {
+		return false
+	}
+
+	for i := 0; i < grid1.Len(); i++ {
+		line1 := grid1.At(i).(*vector.IntVector)
+		line2 := grid2.At(i).(*vector.IntVector)
+		for j := 0; j < line1.Len(); j++ {
+			if line1.At(j) != line2.At(j) {
+				return false
+			}
+		}
+	}
+
+	return true
+}
+
 func TestConvertGridToString(t *testing.T) {
 	firstLine := new(vector.IntVector)
 	firstLine.Push(10)
@@ -30,6 +48,27 @@ func TestConvertGridToString(t *testing.T) {
 	got := ConvertGridToString(grid)
 
 	if expected != got {
+		t.Errorf("Expected: %q\nGot: %q", expected, got)
+	}
+}
+
+func TestConvertGridFromString(t *testing.T) {
+	grid := "10 15\n8 5"
+
+	firstLine := new(vector.IntVector)
+	firstLine.Push(10)
+	firstLine.Push(15)
+
+	secondLine := new(vector.IntVector)
+	secondLine.Push(8)
+	secondLine.Push(5)
+
+	expected := new(vector.Vector)
+	expected.Push(firstLine)
+	expected.Push(secondLine)
+	got := ReadGridFromString(grid)
+
+	if !AreGridEquals(expected, got) {
 		t.Errorf("Expected: %q\nGot: %q", expected, got)
 	}
 }
