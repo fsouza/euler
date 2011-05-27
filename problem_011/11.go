@@ -82,13 +82,18 @@ func GridProduct(grid *vector.Vector, elements int) uint {
 	}
 
 	for i := 0; i < grid.Len() - elements + 1; i++ {
-		product = 1
-		for j := i; j < i + elements; j++ {
-			product *= uint(grid.At(j).(*vector.IntVector).At(j))
-		}
+		line := grid.At(i).(*vector.IntVector)
+		for j := 0; j < line.Len() - elements + 1; j++ {
+			l := j
+			product = 1
+			for k := i; k < i + 4; k++ {
+				product *= uint(grid.At(k).(*vector.IntVector).At(l))
+				l++
+			}
 
-		if product > greater {
-			greater = product
+			if product > greater {
+				greater = product
+			}
 		}
 	}
 

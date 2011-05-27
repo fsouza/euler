@@ -140,3 +140,10 @@ func TestGridProductOfTheMainDiagonal(t *testing.T) {
 
 	AssertGridProduct(t, grid, 10000)
 }
+
+func TestGridProductOfAnyDiagonal(t *testing.T) {
+	stringGrid := "1 1 10 1 1 1\n1 1 1 10 1 1\n1 1 1 1 10 1\n1 1 1 1 1 10\n1 1 1 1 1 1"
+	grid := ReadGridFromString(stringGrid)
+
+	AssertGridProduct(t, grid, 10000)
+}
