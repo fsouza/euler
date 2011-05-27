@@ -83,7 +83,7 @@ func TestGridProductOfVerticalLine(t *testing.T) {
 	AssertGridProduct(t, grid, 10000)
 }
 
-func TestGridProductOfDiagonal(t *testing.T) {
+func TestGridProductOfTheMainDiagonal(t *testing.T) {
 	grid := new(vector.Vector)
 
 	for i := 0; i < 5; i++ {
