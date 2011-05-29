@@ -27,7 +27,7 @@ func FilterPrimes(prime int, numbersChannel chan int) chan int {
 	return channel
 }
 
-func PrimeAt(position int) int {
+func GetPrimes() chan int {
 	primesChannel := make(chan int)
 
 	go func(){
@@ -39,10 +39,5 @@ func PrimeAt(position int) int {
 		}
 	}()
 
-	var prime int
-	for i := 0; i < position; i++ {
-		prime = <- primesChannel
-	}
-
-	return prime
+	return primesChannel
 }
