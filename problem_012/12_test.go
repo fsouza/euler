@@ -45,8 +45,9 @@ func TestCountOfDivisors(t *testing.T) {
 }
 
 func TestFindTriangleNumberAt(t *testing.T) {
+	cache := make(map[int] int)
 	expected := 28
-	got := FindTriangleNumberAt(7)
+	got := FindTriangleNumberAt(7, cache)
 
 	if expected != got {
 		t.Errorf("Expected %q. Got %q.", expected, got)

@@ -2,6 +2,8 @@ package main
 
 import (
 	"container/vector"
+	"fmt"
+	"math"
 )
 
 func GetPrimeFactors(number int) (*vector.IntVector, *vector.IntVector) {
@@ -13,6 +15,10 @@ func GetPrimeFactors(number int) (*vector.IntVector, *vector.IntVector) {
 	for  {
 		prime := <-primesChannel
 
+		if number < prime {
+			break
+		}
+
 		if result % prime == 0 {
 			numbers.Push(prime)
 			count := 1
@@ -22,10 +28,6 @@ func GetPrimeFactors(number int) (*vector.IntVector, *vector.IntVector) {
 			}
 
 			counts.Push(count)
-		}
-
-		if number < prime {
-			break
 		}
 	}
 
@@ -43,21 +45,32 @@ func CountDivisors(number int) int {
 	return count
 }
 
-func FindTriangleNumberAt(index int) int {
-	if index == 1 {
-		return index
+func FindTriangleNumberAt(index int, cache map[int] int) int {
+	_, foundOnCache := cache[index]
+	if !foundOnCache {
+		if index == 1 {
+			return index
+		}
+
+		cache[index] = index + FindTriangleNumberAt(index - 1, cache)
 	}
 
-	return index + FindTriangleNumberAt(index - 1)
+	return cache[index]
 }
 
 func FindFirstNumberToOverLimit(limit int) int {
-	for i := 1; ; i++ {
-		triangle := FindTriangleNumberAt(i)
-		divisorsCount := CountDivisors(triangle)
+	triangleCache := make(map[int] int)
 
-		if divisorsCount > limit {
-			return triangle
+	minimum := int(math.Pow(float64(limit), 2))
+	for i := 1; ; i++ {
+		triangle := FindTriangleNumberAt(i, triangleCache)
+
+		if triangle > minimum {
+			divisorsCount := CountDivisors(triangle)
+
+			if divisorsCount > limit {
+				return triangle
+			}
 		}
 	}
 
@@ -65,5 +78,5 @@ func FindFirstNumberToOverLimit(limit int) int {
 }
 
 func main() {
-
+	fmt.Println(FindFirstNumberToOverLimit(50))
 }
