@@ -53,6 +53,7 @@ func FindTriangleNumberAt(index int, cache map[int] int) int {
 		}
 
 		cache[index] = index + FindTriangleNumberAt(index - 1, cache)
+		cache[index - 1] = 0, false
 	}
 
 	return cache[index]
