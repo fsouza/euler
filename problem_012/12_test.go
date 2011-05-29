@@ -52,3 +52,11 @@ func TestFindTriangleNumberAt(t *testing.T) {
 		t.Errorf("Expected %q. Got %q.", expected, got)
 	}
 }
+
+func TestFindFirstNumberToOverLimit(t *testing.T) {
+	expected := 28
+	got := FindFirstNumberToOverLimit(5)
+	if expected != got {
+		t.Errorf("Expected %q. Got %q.", expected, got)
+	}
+}

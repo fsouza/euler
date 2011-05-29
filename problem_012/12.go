@@ -51,6 +51,19 @@ func FindTriangleNumberAt(index int) int {
 	return index + FindTriangleNumberAt(index - 1)
 }
 
+func FindFirstNumberToOverLimit(limit int) int {
+	for i := 1; ; i++ {
+		triangle := FindTriangleNumberAt(i)
+		divisorsCount := CountDivisors(triangle)
+
+		if divisorsCount > limit {
+			return triangle
+		}
+	}
+
+	return 0
+}
+
 func main() {
 
 }
