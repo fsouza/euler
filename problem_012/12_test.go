@@ -20,13 +20,18 @@ func AreTwoIntVectorEquals(vector1, vector2 *vector.IntVector) bool {
 }
 
 func TestGetPrimeFactorsOfANumber(t *testing.T) {
-	expected := new(vector.IntVector)
+	expectedPrimes := new(vector.IntVector)
 	for _, integer := range []int{2, 3, 5} {
-		expected.Push(integer)
+		expectedPrimes.Push(integer)
 	}
 
-	got := GetPrimeFactors(90)
-	if !AreTwoIntVectorEquals(expected, got) {
-		t.Errorf("Expected %q. Got %q", expected, got)
+	expectedCounts := new(vector.IntVector)
+	for _, integer := range []int{1, 2, 1} {
+		expectedCounts.Push(integer)
+	}
+
+	gotPrimes, gotCounts := GetPrimeFactors(90)
+	if !AreTwoIntVectorEquals(expectedPrimes, gotPrimes) || !AreTwoIntVectorEquals(expectedCounts, gotCounts) {
+		t.Errorf("Expected primes %q. Got primes %q\nExpected count %q. Got count %q", expectedPrimes, gotPrimes)
 	}
 }
