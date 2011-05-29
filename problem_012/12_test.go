@@ -35,3 +35,11 @@ func TestGetPrimeFactorsOfANumber(t *testing.T) {
 		t.Errorf("Expected primes %q. Got primes %q\nExpected count %q. Got count %q", expectedPrimes, gotPrimes)
 	}
 }
+
+func TestCountOfDivisors(t *testing.T) {
+	expected := 6
+	got := CountDivisors(28)
+	if expected != got {
+		t.Errorf("Expected %q. Got %q.", expected, got)
+	}
+}
