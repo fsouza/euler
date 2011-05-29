@@ -2,7 +2,8 @@ include $(GOROOT)/src/Make.inc
 
 TARG=main
 GOFILES=\
-		12.go
+		12.go\
+		7.go
 
 include $(GOROOT)/src/Make.pkg
 
