@@ -79,5 +79,5 @@ func FindFirstNumberToOverLimit(limit int) int {
 }
 
 func main() {
-	fmt.Println(FindFirstNumberToOverLimit(50))
+	fmt.Println(FindFirstNumberToOverLimit(500))
 }
