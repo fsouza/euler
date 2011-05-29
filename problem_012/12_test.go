@@ -43,3 +43,12 @@ func TestCountOfDivisors(t *testing.T) {
 		t.Errorf("Expected %q. Got %q.", expected, got)
 	}
 }
+
+func TestFindTriangleNumberAt(t *testing.T) {
+	expected := 28
+	got := FindTriangleNumberAt(7)
+
+	if expected != got {
+		t.Errorf("Expected %q. Got %q.", expected, got)
+	}
+}

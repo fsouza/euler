@@ -43,6 +43,14 @@ func CountDivisors(number int) int {
 	return count
 }
 
+func FindTriangleNumberAt(index int) int {
+	if index == 1 {
+		return index
+	}
+
+	return index + FindTriangleNumberAt(index - 1)
+}
+
 func main() {
 
 }
