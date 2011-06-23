@@ -13,3 +13,8 @@ func SumDigitsOf(number uint) uint {
 
 	return sum
 }
+
+func SliceDigits(number, length uint) string {
+	digits := strconv.Uitoa(number)
+	return digits[:length]
+}

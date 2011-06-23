@@ -12,3 +12,11 @@ func TestSumDigitsOfANumber(t *testing.T) {
 	}
 }
 
+func TestSliceDigitsOfANumber(t *testing.T) {
+	expected := "1234"
+	got := SliceDigits(123456789, 4)
+	if expected != got {
+		t.Errorf("%s != %s", expected, got)
+	}
+}
+
