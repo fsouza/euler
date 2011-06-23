@@ -3,3 +3,4 @@
 *.out
 *.a
 _test*
+*.pyc
