@@ -5,8 +5,8 @@ import (
 )
 
 func TestFindChainLengthForNumber(t *testing.T) {
-	expected := 10
-	got := FindChainLength(13)
+	expected := 11
+	got := FindChainLength(26)
 	if expected != got {
 		t.Errorf("%d != %d", expected, got)
 	}
