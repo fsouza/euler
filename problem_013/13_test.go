@@ -20,3 +20,12 @@ func TestSliceDigitsOfANumber(t *testing.T) {
 	}
 }
 
+func TestReduce(t *testing.T) {
+	input := []uint{1, 2, 3, 4}
+	expected := uint(10)
+	got := Reduce(func(x, y uint) uint { return x + y }, input)
+	if expected != got {
+		t.Errorf("%d != %d", expected, got)
+	}
+}
+
