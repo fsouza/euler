@@ -5,7 +5,7 @@ import (
 )
 
 func TestGetCellOnPascalTriangle(t *testing.T) {
-	expected := 6
+	expected := uint64(6)
 	got := GetPascalsTriangleCell(4, 2)
 	if expected != got {
 		t.Errorf("Assertion error.\nExpected: %d.\nGot: %d.", expected, got)
