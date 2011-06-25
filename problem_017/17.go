@@ -1,17 +1,20 @@
 package main
 
-var unitiesMap = map[int]string{
-	1:"one",
-	2:"two",
-	3:"three",
-	4:"four",
-	5:"five",
-	6:"six",
-	7:"seven",
-	8:"eight",
-	9:"nine",
+var unitiesMap = map[int]int{
+	1: 3,
+	2: 3,
+	3: 5,
+	4: 4,
+	5: 4,
+	6: 3,
+	7: 5,
+	8: 5,
+	9: 4,
+	10: 3,
+	11: 6,
+	12: 6,
 }
 
-func WriteNumber(number int) string {
+func CountLetters(number int) int {
 	return unitiesMap[number]
 }
