@@ -16,11 +16,10 @@ var unitsMap = map[int]int{
 	20: 6,
 }
 
+// Only the differences :)
 var leftMap = map[int]int {
 	3:4,
-	4:4,
 	5:3,
-	6:3,
 }
 
 func DivMod(divisor, numerator int) (div, mod int) {
@@ -32,6 +31,15 @@ func DivMod(divisor, numerator int) (div, mod int) {
 func CountLetters(number int) int {
 	if count, ok := unitsMap[number]; ok {
 		return count
+	}
+
+	if number < 20 {
+		_, mod := DivMod(number, 10)
+		if count, ok := leftMap[mod]; ok {
+			return count + 4
+		}
+
+		return unitsMap[mod] + 4
 	}
 
 	panic("I don't know how many letters this number has.")
