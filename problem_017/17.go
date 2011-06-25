@@ -1,6 +1,7 @@
 package main
 
 var unitsMap = map[int]int{
+	0: 0,
 	1: 3,
 	2: 3,
 	3: 5,
@@ -23,44 +24,77 @@ var leftMap = map[int]int {
 	8:4,
 }
 
-func DivMod(divisor, numerator int) (div, mod int) {
-	div = divisor / numerator
-	mod = divisor % numerator
-	return
+func FindOnMaps(key int) int {
+	if value, ok := leftMap[key]; ok {
+		return value
+	} else {
+		return unitsMap[key]
+	}
+
+	panic("Shouldn't get here :(")
 }
 
-func CountLetters(number int) int {
-	var find, total int
+func DivMod(divisor, numerator int) (int, int) {
+	return divisor / numerator, divisor % numerator
+}
 
+func CountUnits(number int) int {
 	if number == 0 {
 		return 0
 	}
 
-	if count, ok := unitsMap[number]; ok {
-		return count
+	return unitsMap[number]
+}
+
+func CountDozens(number int) int {
+	if number == 0 {
+		return 0
 	}
 
+	if number < 13 {
+		return unitsMap[number]
+	}
+
+	var count int
 	div, mod := DivMod(number, 10)
-	if div == 1 {
-		total = 4
-		find = mod
-	} else if div == 2 { // damn twenty
-		total = unitsMap[20]
-		find = mod
+
+	find := true
+	if div == 0 {
+		find = false
+	} else if div == 1 {
+		count += 4
+		count += FindOnMaps(mod)
+		mod = 0
+		find = false
+	} else if div == 2 { // twenty
+		count += unitsMap[20]
+		find = false
 	} else {
-		total = 2
-		find = div
+		count += 2
 	}
 
-	if count, ok := leftMap[find]; ok {
-		total += count
-	} else {
-		total += unitsMap[find]
+	if find {
+		count += FindOnMaps(div)
 	}
 
-	if div < 3 {
-		return total
+	return count + CountUnits(mod)
+}
+
+func CountHundred(number int) int {
+	if number == 0 {
+		return 0
 	}
 
-	return total + CountLetters(mod)
+	var count int
+	div, mod := DivMod(number, 100)
+
+	if div > 0 {
+		count += 7 + unitsMap[div]
+	}
+
+	return count + CountDozens(mod)
+}
+
+func CountLetters(number int) int {
+	return CountHundred(number)
 }
