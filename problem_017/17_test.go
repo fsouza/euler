@@ -21,6 +21,8 @@ var Problem17Tests = []Problem17Test{
 	Problem17Test{10, 3},
 	Problem17Test{11, 6},
 	Problem17Test{12, 6},
+	Problem17Test{13, 8},
+	Problem17Test{20, 6},
 }
 
 func TestProblem17(t *testing.T) {

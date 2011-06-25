@@ -13,13 +13,12 @@ var unitsMap = map[int]int{
 	10: 3,
 	11: 6,
 	12: 6,
+	20: 6,
 }
 
-var 
-
 func CountLetters(number int) int {
-	if number <= 12 {
-		return unitsMap[number]
+	if count, ok := unitsMap[number]; ok {
+		return count
 	}
 
 	panic("I don't know how many letters this number has.")
