@@ -69,6 +69,8 @@ func CountDozens(number int) int {
 	} else if div == 2 { // twenty
 		count += unitsMap[20]
 		find = false
+	} else if div == 4 {
+		count++
 	} else {
 		count += 2
 	}
