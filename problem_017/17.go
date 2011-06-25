@@ -29,7 +29,7 @@ func DivMod(divisor, numerator int) (div, mod int) {
 }
 
 func CountLetters(number int) int {
-	var total int
+	var find, total int
 
 	if count, ok := unitsMap[number]; ok {
 		return count
@@ -44,10 +44,16 @@ func CountLetters(number int) int {
 		total = 2
 	}
 
-	if count, ok := leftMap[mod]; ok {
+	if mod == 0 {
+		find = div
+	} else {
+		find = mod
+	}
+
+	if count, ok := leftMap[find]; ok {
 		total += count
 	} else {
-		total += unitsMap[mod]
+		total += unitsMap[find]
 	}
 
 	return total
