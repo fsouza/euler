@@ -1,6 +1,6 @@
 package main
 
-var unitiesMap = map[int]int{
+var unitsMap = map[int]int{
 	1: 3,
 	2: 3,
 	3: 5,
@@ -15,9 +15,11 @@ var unitiesMap = map[int]int{
 	12: 6,
 }
 
+var 
+
 func CountLetters(number int) int {
 	if number <= 12 {
-		return unitiesMap[number]
+		return unitsMap[number]
 	}
 
 	panic("I don't know how many letters this number has.")
