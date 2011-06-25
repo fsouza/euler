@@ -16,5 +16,9 @@ var unitiesMap = map[int]int{
 }
 
 func CountLetters(number int) int {
-	return unitiesMap[number]
+	if number <= 12 {
+		return unitiesMap[number]
+	}
+
+	panic("I don't know how many letters this number has.")
 }
