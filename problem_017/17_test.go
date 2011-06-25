@@ -34,7 +34,7 @@ var Problem17Tests = []Problem17Test{
 	Problem17Test{31, 9},
 	Problem17Test{31, 9},
 	Problem17Test{33, 11},
-	Problem17Test{40, 5}, // forty, not fourty
+	Problem17Test{40, 5},
 	Problem17Test{42, 8},
 	Problem17Test{50, 5},
 	Problem17Test{60, 5},
@@ -46,7 +46,7 @@ var Problem17Tests = []Problem17Test{
 	Problem17Test{115, 20},
 	Problem17Test{200, 10},
 	Problem17Test{300, 12},
-	Problem17Test{1000, 9},
+	Problem17Test{1000, 11},
 }
 
 func TestDivMod(t *testing.T) {
