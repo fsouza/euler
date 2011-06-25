@@ -25,6 +25,7 @@ var Problem17Tests = []Problem17Test{
 	Problem17Test{14, 8},
 	Problem17Test{15, 7},
 	Problem17Test{20, 6},
+	Problem17Test{21, 9},
 }
 
 func TestDivMod(t *testing.T) {

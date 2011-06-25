@@ -1,5 +1,9 @@
 package main
 
+import (
+	"strconv"
+)
+
 var unitsMap = map[int]int{
 	1: 3,
 	2: 3,
@@ -42,5 +46,5 @@ func CountLetters(number int) int {
 		return unitsMap[mod] + 4
 	}
 
-	panic("I don't know how many letters this number has.")
+	panic("I don't know how many letters " + strconv.Itoa(number) + " has.")
 }
