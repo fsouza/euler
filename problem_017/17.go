@@ -100,5 +100,9 @@ func CountHundred(number int) int {
 }
 
 func CountLetters(number int) int {
+	if number == 1000 {
+		return 9
+	}
+
 	return CountHundred(number)
 }
