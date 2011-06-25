@@ -108,3 +108,13 @@ func CountLetters(number int) int {
 
 	return CountHundred(number)
 }
+
+func SumLetters(until int) int {
+	sum := 0
+
+	for i := 1; i <= until; i++ {
+		sum += CountLetters(i)
+	}
+
+	return sum
+}

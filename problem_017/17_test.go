@@ -68,3 +68,11 @@ func TestProblem17(t *testing.T) {
 	}
 }
 
+func TestSumLetters(t *testing.T) {
+	expected := 19
+	got := SumLetters(5)
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	}
+}
+
