@@ -58,7 +58,7 @@ func CountLetters(number int) int {
 		total += unitsMap[find]
 	}
 
-	if find == mod {
+	if div < 3 {
 		return total
 	}
 
