@@ -32,6 +32,10 @@ func DivMod(divisor, numerator int) (div, mod int) {
 func CountLetters(number int) int {
 	var find, total int
 
+	if number == 0 {
+		return 0
+	}
+
 	if count, ok := unitsMap[number]; ok {
 		return count
 	}
@@ -39,16 +43,13 @@ func CountLetters(number int) int {
 	div, mod := DivMod(number, 10)
 	if div == 1 {
 		total = 4
+		find = mod
 	} else if div == 2 { // damn twenty
 		total = unitsMap[20]
+		find = mod
 	} else {
 		total = 2
-	}
-
-	if mod == 0 {
 		find = div
-	} else {
-		find = mod
 	}
 
 	if count, ok := leftMap[find]; ok {
@@ -57,5 +58,9 @@ func CountLetters(number int) int {
 		total += unitsMap[find]
 	}
 
-	return total
+	if find == mod {
+		return total
+	}
+
+	return total + CountLetters(mod)
 }

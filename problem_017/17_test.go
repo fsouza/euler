@@ -9,6 +9,7 @@ type Problem17Test struct {
 }
 
 var Problem17Tests = []Problem17Test{
+	Problem17Test{0, 0},
 	Problem17Test{1, 3},
 	Problem17Test{2, 3},
 	Problem17Test{3, 5},
@@ -30,6 +31,7 @@ var Problem17Tests = []Problem17Test{
 	Problem17Test{23, 10},
 	Problem17Test{29, 10},
 	Problem17Test{30, 6},
+	Problem17Test{31, 9},
 	Problem17Test{40, 6},
 	Problem17Test{50, 5},
 	Problem17Test{60, 5},
@@ -52,7 +54,7 @@ func TestProblem17(t *testing.T) {
 		expected := v.out
 		got := CountLetters(v.in)
 		if expected != got {
-			t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+			t.Errorf("Assertion error.\nExpected: %v for %v.\nGot: %v.", expected, v.in, got)
 		}
 	}
 }
