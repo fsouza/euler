@@ -34,6 +34,7 @@ var Problem17Tests = []Problem17Test{
 	Problem17Test{50, 5},
 	Problem17Test{60, 5},
 	Problem17Test{70, 7},
+	Problem17Test{80, 6},
 	Problem17Test{90, 6},
 }
 

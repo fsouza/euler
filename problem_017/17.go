@@ -20,6 +20,7 @@ var unitsMap = map[int]int{
 var leftMap = map[int]int {
 	3:4,
 	5:3,
+	8:4,
 }
 
 func DivMod(divisor, numerator int) (div, mod int) {
