@@ -1,9 +1,5 @@
 package main
 
-import (
-	"strconv"
-)
-
 var unitsMap = map[int]int{
 	1: 3,
 	2: 3,
@@ -33,18 +29,26 @@ func DivMod(divisor, numerator int) (div, mod int) {
 }
 
 func CountLetters(number int) int {
+	var total int
+
 	if count, ok := unitsMap[number]; ok {
 		return count
 	}
 
-	if number < 20 {
-		_, mod := DivMod(number, 10)
-		if count, ok := leftMap[mod]; ok {
-			return count + 4
-		}
-
-		return unitsMap[mod] + 4
+	div, mod := DivMod(number, 10)
+	if div == 1 {
+		total = 4
+	} else if div == 2 { // damn twenty
+		total = unitsMap[20]
+	} else {
+		total = 2
 	}
 
-	panic("I don't know how many letters " + strconv.Itoa(number) + " has.")
+	if count, ok := leftMap[mod]; ok {
+		total += count
+	} else {
+		total += unitsMap[mod]
+	}
+
+	return total
 }
