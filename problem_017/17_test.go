@@ -21,9 +21,17 @@ var Problem17Tests = []Problem17Test{
 	Problem17Test{10, 3},
 	Problem17Test{11, 6},
 	Problem17Test{12, 6},
-	Problem17Test{13, 8},
 	Problem17Test{20, 6},
 }
+
+func TestDivMod(t *testing.T) {
+	expectedDiv, expectedMod := 2, 1
+	gotDiv, gotMod := DivMod(5, 2)
+	if expectedDiv != gotDiv || expectedMod != gotMod {
+		t.Errorf("Assertion error.\n%v != %v or %v != %v", expectedDiv, gotDiv, expectedMod, gotMod)
+	}
+}
+
 
 func TestProblem17(t *testing.T) {
 	for _, v := range Problem17Tests {

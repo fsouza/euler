@@ -16,6 +16,19 @@ var unitsMap = map[int]int{
 	20: 6,
 }
 
+var leftMap = map[int]int {
+	3:4,
+	4:4,
+	5:3,
+	6:3,
+}
+
+func DivMod(divisor, numerator int) (div, mod int) {
+	div = divisor / numerator
+	mod = divisor % numerator
+	return
+}
+
 func CountLetters(number int) int {
 	if count, ok := unitsMap[number]; ok {
 		return count
