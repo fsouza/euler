@@ -90,6 +90,10 @@ func CountHundred(number int) int {
 
 	if div > 0 {
 		count += 7 + unitsMap[div]
+
+		if mod > 0 {
+			count += 3 // "and"
+		}
 	}
 
 	return count + CountDozens(mod)
