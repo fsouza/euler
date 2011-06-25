@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 )
 
@@ -16,11 +17,17 @@ func SumDigits(number uint64) uint64 {
 }
 
 func Pow(base, exponent uint64) uint64 {
-	var product uint64 = 1
+	product := base
 
-	for i := uint64(0); i < exponent; i++ {
+	for i := uint64(0); i < exponent - 1; i++ {
 		product *= base
 	}
 
 	return product
+}
+
+func main() {
+	// Not gonna work =/
+	pow := Pow(2, 1000)
+	fmt.Println(SumDigits(pow))
 }
