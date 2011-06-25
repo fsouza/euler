@@ -14,3 +14,13 @@ func SumDigits(number uint64) uint64 {
 
 	return sum
 }
+
+func Pow(base, exponent uint64) uint64 {
+	var product uint64 = 1
+
+	for i := uint64(0); i < exponent; i++ {
+		product *= base
+	}
+
+	return product
+}

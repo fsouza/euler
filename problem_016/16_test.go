@@ -12,3 +12,11 @@ func TestSumDigitsOfANumber(t *testing.T) {
 	}
 }
 
+func TestPow(t *testing.T) {
+	expected := uint64(4)
+	got := Pow(2, 2)
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %d.\nGot: %d.", expected, got)
+	}
+}
+
