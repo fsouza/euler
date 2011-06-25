@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 var unitsMap = map[int]int{
 	0: 0,
 	1: 3,
@@ -117,4 +121,8 @@ func SumLetters(until int) int {
 	}
 
 	return sum
+}
+
+func main() {
+	fmt.Println(SumLetters(1000))
 }
