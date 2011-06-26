@@ -1,16 +1,20 @@
 package main
 
+import (
+	"strconv"
+)
+
 type Element struct {
 	value int
-}
-
-type ElementWithAdjacents struct {
-	Element
 	right, left *Element
 }
 
-func NewElement(value int, right, left *Element) *ElementWithAdjacents {
-	element := new(ElementWithAdjacents)
+func (e *Element) String() string {
+	return strconv.Itoa(e.value)
+}
+
+func NewElement(value int, left, right *Element) *Element {
+	element := new(Element)
 	element.value = value
 	element.right = right
 	element.left = left
