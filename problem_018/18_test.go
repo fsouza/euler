@@ -4,6 +4,12 @@ import (
 	"testing"
 )
 
+func AssertEqual(expected, got int, t *testing.T) {
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	}
+}
+
 func TestGetNewElement(t *testing.T) {
 	element := NewElement(100, nil, nil)
 	if element.value != 100 {
