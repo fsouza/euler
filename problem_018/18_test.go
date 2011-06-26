@@ -26,3 +26,15 @@ func TestGetNewElementWithAdjacents(t *testing.T) {
 	}
 }
 
+func TestBuildStructureFromString(t *testing.T) {
+	theString := "3\n7 4"
+	root := BuildFromString(theString)
+	AssertEqual(3, root.value, t)
+	AssertEqual(7, root.left.value, t)
+	AssertEqual(4, root.right.value, t)
+	// AssertEqual(2, root.left.left.value, t)
+	// AssertEqual(4, root.left.right.value, t)
+	// AssertEqual(4, root.right.left.value, t)
+	// AssertEqual(6, root.right.right.value, t)
+}
+
