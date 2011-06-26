@@ -11,3 +11,10 @@ func TestTriangleElementHasValue(t *testing.T) {
 	}
 }
 
+func TestTriangleElementWithAdjacents(t *testing.T) {
+	element := NewElement(68, nil, nil)
+	if element.value != 68 || element.right != nil || element.left != nil {
+		t.Errorf("Element with adjacents should have a value and two adjacents")
+	}
+}
+
