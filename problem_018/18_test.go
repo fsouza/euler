@@ -21,4 +21,3 @@ func TestCanFindTheGreatestSum(t *testing.T) {
 	got := FindGreatestSum(rows)
 	AssertEqual(expected, got, t)
 }
-
