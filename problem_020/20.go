@@ -5,11 +5,11 @@ import (
 	"fmt"
 )
 
-func SumDigitsOf(number *big.Int) int64 {
+func SumDigitsOf(number *big.Int) int {
 	digits := number.String()
-	sum := int64(0)
+	sum := int(0)
 	for _, digit := range digits {
-		sum += int64(digit - '0')
+		sum += int(digit - '0')
 	}
 
 	return sum
