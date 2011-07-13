@@ -39,6 +39,8 @@ func FindGreatestSum(rows []Row) int {
 		for j, item := range row[:len(row)] {
 			if j == 0 {
 				rows[i + 1][j] += item
+			} else if rows[i + 1][j] - row[j - 1] + item > rows[i + 1][j] {
+				rows[i + 1][j] += item - row[j - 1]
 			}
 
 			rows[i + 1][j + 1] += item
