@@ -1,5 +1,10 @@
 package main
 
+import (
+	"strconv"
+	"strings"
+)
+
 type Row []int
 
 func Max(items []int) (max int) {
@@ -10,6 +15,22 @@ func Max(items []int) (max int) {
 	}
 
 	return
+}
+
+func BuildrowsSliceFromString(input string) []Row {
+	rows := make([]Row, 0)
+	stringRows := strings.Split(input, "\n")
+
+	for _, stringRow := range stringRows {
+		items := strings.Split(stringRow, " ")
+		row := make([]int, len(items))
+		for i, item := range items {
+			row[i], _ = strconv.Atoi(item)
+		}
+		rows = append(rows, row)
+	}
+
+	return rows
 }
 
 func FindGreatestSum(rows []Row) int {
