@@ -10,6 +10,16 @@ func AssertEqual(expected, got int, t *testing.T) {
 	}
 }
 
+func TestCanFindGreatestValueOfASlice(t *testing.T) {
+	in := []int{1, 2, 10}
+	expected := 10
+	got := Max(in)
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	}
+}
+
+
 func TestCanFindTheGreatestSum(t *testing.T) {
 	rows := []Row{
 		Row{1},
