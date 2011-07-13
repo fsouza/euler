@@ -12,3 +12,11 @@ func TestFindDayOfWeek(t *testing.T) {
 	}
 }
 
+func TestFindDayOfWeekOn2000(t *testing.T) {
+	expected := 4 // 4 == wednesday
+	got := FindDayOfWeek(2011, 7, 13)
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	}
+}
+
