@@ -28,3 +28,11 @@ func TestFindLeapYear(t *testing.T) {
 	}
 }
 
+func TestFindLeapYearOnFirstOfMonth(t *testing.T) {
+	expected := 2
+	got := FindDayOfWeek(2000, 5, 1)
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	}
+}
+

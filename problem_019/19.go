@@ -21,7 +21,7 @@ func FindDayOfWeek(year, month, day int) (weekday int) {
 	yearCode := (centuryCode + lastYearDigits + (lastYearDigits / 4)) % 7
 	weekday = (yearCode + monthCodes[month - 1] + day) % 7
 
-	if year % 4 == 0 && year % 100 != 0 || year % 400 == 0 {
+	if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) && month < 3 {
 		weekday--
 	}
 
@@ -29,5 +29,16 @@ func FindDayOfWeek(year, month, day int) (weekday int) {
 }
 
 func main() {
-	fmt.Println(FindDayOfWeek(1901, 1, 1))
+	var sundayCounter int
+
+	for currentYear := 1901; currentYear < 2001; currentYear++ {
+		for month := 1; month < 13; month++ {
+			weekday := FindDayOfWeek(currentYear, month, 1)
+			if weekday == 1 {
+				sundayCounter++
+			}
+		}
+	}
+
+	fmt.Println(sundayCounter)
 }
