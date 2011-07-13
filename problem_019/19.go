@@ -29,5 +29,5 @@ func FindDayOfWeek(year, month, day int) (weekday int) {
 }
 
 func main() {
-	fmt.Println(FindDayOfWeek(1901, 1, 6))
+	fmt.Println(FindDayOfWeek(1901, 1, 1))
 }
