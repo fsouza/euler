@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math"
 )
 
@@ -15,4 +16,17 @@ func SumOfFactors(number uint) uint {
 	}
 
 	return sum
+}
+
+func main() {
+	sum := uint(0)
+
+	for i := uint(2); i < 10000; i++ {
+		sumOfI := SumOfFactors(i)
+		if sumOfI > i && SumOfFactors(sumOfI) == i {
+			sum += sumOfI + i
+		}
+	}
+
+	fmt.Println(sum)
 }
