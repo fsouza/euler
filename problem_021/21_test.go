@@ -22,4 +22,3 @@ func TestFindFactors(t *testing.T) {
 		}
 	}
 }
-
