@@ -9,7 +9,9 @@ import (
 
 func CountLetterNumbers(word string) (sum int64) {
 	for _, c := range word {
-		sum += int64(c - 'A' + 1)
+		if c >= 'A' && c <= 'Z' {
+			sum += int64(c - 'A' + 1)
+		}
 	}
 
 	return
