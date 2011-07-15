@@ -11,7 +11,12 @@ func SumOfFactors(number uint) uint {
 
 	for i := uint(2); i < sqrt + 1; i++ {
 		if number % i == 0 {
-			sum += i + number / i
+			sum += i
+
+			result := number / i
+			if i != result {
+				sum += result
+			}
 		}
 	}
 
@@ -21,3 +26,4 @@ func SumOfFactors(number uint) uint {
 func IsAbundant(number uint) bool {
 	return SumOfFactors(number) > number
 }
+

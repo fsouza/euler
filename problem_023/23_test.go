@@ -25,3 +25,11 @@ func TestCanCheckIfANumberIsAbundant(t *testing.T) {
 	}
 }
 
+func TestCanSumFactors(t *testing.T) {
+	expected := uint(3)
+	got := SumOfFactors(4)
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	}
+}
+
