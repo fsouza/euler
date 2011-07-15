@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math"
 )
 
@@ -27,3 +28,40 @@ func IsAbundant(number uint) bool {
 	return SumOfFactors(number) > number
 }
 
+func main() {
+	var abundantCount int
+
+	limit := uint(20162)
+	abundants := make([]uint, 500)
+	abundantSums := make(map[uint]bool)
+
+	for i := uint(1); i < limit; i++ {
+		if IsAbundant(i) {
+			if abundantCount < 500 {
+				abundants[abundantCount] = i
+			} else {
+				abundants = append(abundants, i)
+			}
+
+			abundantCount++
+		}
+	}
+
+	for i := 0; i < abundantCount; i++ {
+		for j := i; j < abundantCount; j++ {
+			sum := abundants[i] + abundants[j]
+			if sum < limit {
+				abundantSums[sum] = true
+			}
+		}
+	}
+
+	sum := uint(0)
+	for i := uint(1); i < limit; i++ {
+		if _, ok := abundantSums[i]; !ok {
+			sum += i
+		}
+	}
+
+	fmt.Println(sum)
+}
