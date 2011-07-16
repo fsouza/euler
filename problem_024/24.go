@@ -6,6 +6,9 @@ import (
 	"strings"
 )
 
+// SEPA algorithm
+//
+// Reference: http://www.freewebs.com/permute/soda_submit.html
 func permute(numbers []int) {
 	length := len(numbers)
 	key := length - 1
