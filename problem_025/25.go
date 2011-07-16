@@ -2,6 +2,7 @@ package main
 
 import (
 	"big"
+	"fmt"
 )
 
 func Fibonacci(number int64) *big.Int {
@@ -12,4 +13,10 @@ func Fibonacci(number int64) *big.Int {
 	}
 
 	return first
+}
+
+func main() {
+	number := int64(0)
+	for len(Fibonacci(number).String()) < 1000 { number++ }
+	fmt.Println(number)
 }
