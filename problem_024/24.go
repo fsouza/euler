@@ -1,7 +1,8 @@
 package main
 
 import (
-	"sort"
+	"strconv"
+	"strings"
 )
 
 func Factorial(number int) int {
@@ -14,9 +15,45 @@ func Factorial(number int) int {
 	return factorial
 }
 
-func GeneratePermutations(numbers ...int) []string {
-	permutations := make([]string, Factorial(len(numbers)))
+func permute(numbers []int) {
+	length := len(numbers)
+	key := length - 1
 
-	sort.Strings(permutations)
-	return permutations
+	for key > 0 && numbers[key] <= numbers[key - 1] {
+		key--
+	}
+
+	key--
+
+	if key < 0 {
+		return
+	}
+
+	newKey := length - 1
+	for newKey > 0 && numbers[newKey] <= numbers[key] {
+		newKey--
+	}
+
+	numbers[key], numbers[newKey] = numbers[newKey], numbers[key]
+	length--
+	key++
+
+	for length > key {
+		numbers[length], numbers[key] = numbers[key], numbers[length]
+		key++
+		length--
+	}
+}
+
+func FindNthPermutation(position int, numbers ...int) string {
+	for counter := 0; counter < position; counter++ {
+		permute(numbers)
+	}
+
+	strNumbers := make([]string, len(numbers))
+	for i, number := range numbers {
+		strNumbers[i] = strconv.Itoa(number)
+	}
+
+	return strings.Join(strNumbers, "")
 }
