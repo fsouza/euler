@@ -13,12 +13,7 @@ func permute(numbers []int) {
 	for key > 0 && numbers[key] <= numbers[key - 1] {
 		key--
 	}
-
 	key--
-
-	if key < 0 {
-		return
-	}
 
 	newKey := length - 1
 	for newKey > 0 && numbers[newKey] <= numbers[key] {
