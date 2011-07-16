@@ -11,12 +11,3 @@ func TestGenerateAllPermutations(t *testing.T) {
 		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
 	}
 }
-
-func TestFactorial(t *testing.T) {
-	expected := 120
-	got := Factorial(5)
-	if expected != got {
-		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
-	}
-}
-

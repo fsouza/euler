@@ -6,16 +6,6 @@ import (
 	"strings"
 )
 
-func Factorial(number int) int {
-	factorial := int(1)
-
-	for i := number; i >= 1; i-- {
-		factorial *= i
-	}
-
-	return factorial
-}
-
 func permute(numbers []int) {
 	length := len(numbers)
 	key := length - 1
