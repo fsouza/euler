@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -56,4 +57,8 @@ func FindNthPermutation(position int, numbers ...int) string {
 	}
 
 	return strings.Join(strNumbers, "")
+}
+
+func main() {
+	fmt.Println(FindNthPermutation(999999, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
 }
