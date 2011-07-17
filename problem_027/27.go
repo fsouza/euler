@@ -16,6 +16,10 @@ func BuildSliceOfPrimes(limit int) []int {
 }
 
 func IsPrime(number int) bool {
+	if number < 0 {
+		number *= -1
+	}
+
 	if number < 4 {
 		return true
 	}

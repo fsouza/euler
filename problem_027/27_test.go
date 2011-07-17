@@ -33,6 +33,8 @@ var IsPrimeTests = []IsPrimeTest{
 	IsPrimeTest{ 5, true },
 	IsPrimeTest{ 10, false },
 	IsPrimeTest{ 505, false },
+	IsPrimeTest{ -505, false},
+	IsPrimeTest{ -2, true},
 }
 
 func TestIsPrime(t *testing.T) {
