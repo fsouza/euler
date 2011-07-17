@@ -1,8 +1,8 @@
 package main
 
-func BuildSliceOfPrimes(limit int) []uint {
+func BuildSliceOfPrimes(limit int) []int {
 	primesCh := GetPrimes(float64(limit))
-	primes := make([]uint, 0)
+	primes := make([]int, 0)
 
 	for prime := range primesCh {
 		if prime == 0 {

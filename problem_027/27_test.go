@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func AssertAreSliceEqual(expected, got []uint, t *testing.T) {
+func AssertAreSliceEqual(expected, got []int, t *testing.T) {
 	if len(expected) != len(got) {
 		t.Errorf("Assertion error.\nExpected: %v\nGot:%v", expected, got)
 	} else {
@@ -17,7 +17,7 @@ func AssertAreSliceEqual(expected, got []uint, t *testing.T) {
 }
 
 func TestBuildSliceOfPrimes(t *testing.T) {
-	expected := []uint{ 2, 3, 5, 7, }
+	expected := []int{ 2, 3, 5, 7, }
 	got := BuildSliceOfPrimes(10)
 	AssertAreSliceEqual(expected, got, t)
 }

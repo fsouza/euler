@@ -4,10 +4,10 @@ import (
 	"math"
 )
 
-func GenerateCompleteSequence(number uint) chan uint {
-	channel := make(chan uint)
+func GenerateCompleteSequence(number int) chan int {
+	channel := make(chan int)
 	go func(){
-		for i := uint(2); i <= number; i++ {
+		for i := int(2); i <= number; i++ {
 			channel <- i
 		}
 		channel <- 0
@@ -16,8 +16,8 @@ func GenerateCompleteSequence(number uint) chan uint {
 	return channel
 }
 
-func FilterSequence(prime uint, channel chan uint) chan uint {
-	out := make(chan uint)
+func FilterSequence(prime int, channel chan int) chan int {
+	out := make(chan int)
 	go func(){
 		i := <-channel
 		for i != 0{
@@ -31,14 +31,14 @@ func FilterSequence(prime uint, channel chan uint) chan uint {
 	return out
 }
 
-func GetPrimes(number float64) chan uint {
-	var greater uint
-	square := uint(math.Sqrt(number))
-	value := uint(number)
+func GetPrimes(number float64) chan int {
+	var greater int
+	square := int(math.Sqrt(number))
+	value := int(number)
 
-	out := make(chan uint)
+	out := make(chan int)
 	go func(){
-		for i := uint(2); i <= uint(number); i++ {
+		for i := int(2); i <= int(number); i++ {
 			if i > square {
 				break
 			}
@@ -60,15 +60,15 @@ func GetPrimes(number float64) chan uint {
 	return out
 }
 
-func SumPrimes(number float64) uint64 {
+func SumPrimes(number float64) int64 {
 	primesChannel := GetPrimes(number)
 	prime := <-primesChannel
-	sum := uint64(0)
+	sum := int64(0)
 	for {
 		if (prime == 0) {
 			break
 		}
-		sum += uint64(prime)
+		sum += int64(prime)
 		prime = <-primesChannel
 	}
 
