@@ -13,5 +13,6 @@ run:
 	$(COMPILER) 27.go 10.go
 	$(LINKER) 27.$(GONUMBER)
 	./$(GONUMBER).out
+	@make clean
 
 include $(GOROOT)/src/Make.pkg
