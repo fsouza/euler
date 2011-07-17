@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -74,8 +73,4 @@ func SumPrimes(number float64) uint64 {
 	}
 
 	return sum
-}
-
-func main() {
-	fmt.Println(SumPrimes(2000000))
 }
