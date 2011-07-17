@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 type Slice []int
 
 func (s Slice) IsElementPresent(number int) bool {
@@ -48,4 +52,8 @@ func FindLongestRecurring(limit int) (number int) {
 		}
 	}
 	return
+}
+
+func main() {
+	fmt.Println(FindLongestRecurring(1000))
 }
