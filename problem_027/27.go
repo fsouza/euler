@@ -14,3 +14,22 @@ func BuildSliceOfPrimes(limit int) []int {
 
 	return primes
 }
+
+func IsPrime(number int) bool {
+	if number < 4 {
+		return true
+	}
+
+	if number % 2 == 0 {
+		return false
+	}
+
+	count := 0
+	for i := 5; i < number; i += 2 {
+		if number % i == 0 {
+			count++
+		}
+	}
+
+	return count == 0
+}

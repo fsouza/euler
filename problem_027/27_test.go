@@ -22,3 +22,26 @@ func TestBuildSliceOfPrimes(t *testing.T) {
 	AssertAreSliceEqual(expected, got, t)
 }
 
+type IsPrimeTest struct {
+	in int
+	out bool
+}
+
+var IsPrimeTests = []IsPrimeTest{
+	IsPrimeTest{ 2, true },
+	IsPrimeTest{ 3, true },
+	IsPrimeTest{ 5, true },
+	IsPrimeTest{ 10, false },
+	IsPrimeTest{ 505, false },
+}
+
+func TestIsPrime(t *testing.T) {
+	for _, test := range IsPrimeTests {
+		expected := test.out
+		got := IsPrime(test.in)
+		if expected != got {
+			t.Errorf("Assertion error.\nExpected %v to be prime? %v.\nGot: %v.", test.in, expected, got)
+		}
+	}
+}
+
