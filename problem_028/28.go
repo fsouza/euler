@@ -3,7 +3,7 @@ package main
 type Row []int
 type Matrix []Row
 
-func (m Matrix) Equal(other Matrix) bool {
+func (m Matrix) Equals(other Matrix) bool {
 	if len(m) != len(other) {
 		return false
 	}
@@ -32,3 +32,5 @@ func BuildMatrix(rows int) Matrix {
 
 	return matrix
 }
+
+var BuildSpiralMatrix = BuildMatrix

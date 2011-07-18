@@ -36,7 +36,7 @@ func TestCanBuildMatrixOnlyForOddRowsAndCols(t *testing.T) {
 	BuildMatrix(4)
 }
 
-func TestCheckIfMatrixesEqual(t *testing.T) {
+func TestCheckIfMatrixesEquals(t *testing.T) {
 	matrix1 := Matrix {
 		Row { 1, 2, 3, },
 		Row { 4, 5, 6, },
@@ -49,7 +49,22 @@ func TestCheckIfMatrixesEqual(t *testing.T) {
 		Row { 7, 8, 9, },
 	}
 
-	if !matrix1.Equal(matrix2) {
-		t.Errorf("The Equal method should consider the two matrixes equal.")
+	if !matrix1.Equals(matrix2) {
+		t.Errorf("The Equals method should consider the two matrixes equal.")
+	}
+}
+
+func TestBuildSpiralMatrix(t *testing.T) {
+	expected := Matrix {
+		Row { 21, 22, 23, 24, 25, },
+		Row { 20, 7, 8, 8, 10, },
+		Row { 19, 6, 1, 2, 11, },
+		Row { 18, 5, 4, 3, 12, },
+		Row { 17, 16, 15, 14, 13 },
+	}
+
+	got := BuildSpiralMatrix(5)
+	if !expected.Equals(got) {
+		t.Errorf("Assertion error.\nExpected: %v\n\nGot:%v", expected, got)
 	}
 }
