@@ -1,5 +1,9 @@
 package main
 
+import (
+	"strconv"
+)
+
 type Row []int
 type Matrix []Row
 
@@ -17,6 +21,23 @@ func (m Matrix) Equals(other Matrix) bool {
 	}
 
 	return true
+}
+
+func (m Matrix) String() (out string) {
+	for i, row := range m {
+		for j, element := range row {
+			out += strconv.Itoa(element)
+
+			if j + 1 < len(row) {
+				out += " "
+			}
+		}
+
+		if i + 1 < len(m) {
+			out += "\n"
+		}
+	}
+	return
 }
 
 func BuildMatrix(rows int) Matrix {

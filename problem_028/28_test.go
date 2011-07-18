@@ -54,6 +54,21 @@ func TestCheckIfMatrixesEquals(t *testing.T) {
 	}
 }
 
+func TestMatrixAsString(t *testing.T) {
+	matrix := Matrix {
+		Row { 1, 2, 3, },
+		Row { 4, 5, 6, },
+		Row { 7, 8, 9, },
+	}
+
+	expected := "1 2 3\n4 5 6\n7 8 9"
+	got := matrix.String()
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	}
+}
+
+
 func TestBuildSpiralMatrix(t *testing.T) {
 	expected := Matrix {
 		Row { 21, 22, 23, 24, 25, },
