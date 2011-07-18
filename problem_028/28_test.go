@@ -80,6 +80,6 @@ func TestBuildSpiralMatrix(t *testing.T) {
 
 	got := BuildSpiralMatrix(5)
 	if !expected.Equals(got) {
-		t.Errorf("Assertion error.\nExpected: %v\n\nGot:%v", expected, got)
+		t.Errorf("Assertion error.\nExpected:\n%v\n\n\nGot:\n%v", expected, got)
 	}
 }
