@@ -72,7 +72,7 @@ func TestMatrixAsString(t *testing.T) {
 func TestBuildSpiralMatrix(t *testing.T) {
 	expected := Matrix {
 		Row { 21, 22, 23, 24, 25, },
-		Row { 20, 7, 8, 8, 10, },
+		Row { 20, 7, 8, 9, 10, },
 		Row { 19, 6, 1, 2, 11, },
 		Row { 18, 5, 4, 3, 12, },
 		Row { 17, 16, 15, 14, 13 },
