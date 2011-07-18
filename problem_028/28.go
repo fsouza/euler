@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 )
 
@@ -145,4 +146,9 @@ func BuildSpiralMatrix(rows int) Matrix {
 	}
 
 	return matrix
+}
+
+func main() {
+	matrix := BuildSpiralMatrix(1001)
+	fmt.Println(matrix.DiagonalsSum())
 }
