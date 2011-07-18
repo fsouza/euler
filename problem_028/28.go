@@ -4,6 +4,7 @@ import (
 	"strconv"
 )
 
+type SetValue func(Matrix, int, int, int) (int, int)
 type Row []int
 type Matrix []Row
 
@@ -54,4 +55,75 @@ func BuildMatrix(rows int) Matrix {
 	return matrix
 }
 
-var BuildSpiralMatrix = BuildMatrix
+func Right(matrix Matrix, currentRow, currentColumn, value int) (int, int) {
+	currentColumn++
+	matrix[currentRow][currentColumn] = value
+	return currentRow, currentColumn
+}
+
+func Down(matrix Matrix, currentRow, currentColumn, value int) (int, int) {
+	currentRow++
+	matrix[currentRow][currentColumn] = value
+	return currentRow, currentColumn
+}
+
+func Left(matrix Matrix, currentRow, currentColumn, value int) (int, int) {
+	currentColumn--
+	matrix[currentRow][currentColumn] = value
+	return currentRow, currentColumn
+}
+
+func Top(matrix Matrix, currentRow, currentColumn, value int) (int, int) {
+	currentRow--
+	matrix[currentRow][currentColumn] = value
+	return currentRow, currentColumn
+}
+
+func (s SetValue) Next() SetValue {
+	if s == Right {
+		return Down
+	}
+
+	if s == Down {
+		return Left
+	}
+
+	if s == Left {
+		return Top
+	}
+
+	return Right
+}
+
+func BuildSpiralMatrix(rows int) Matrix {
+	var move SetValue
+
+	total := rows * rows
+	middle := rows / 2
+
+	matrix := BuildMatrix(rows)
+	matrix[middle][middle] = 1
+
+	currentRow := middle
+	currentColumn := middle
+	movings := 1
+	calls := 0
+
+	move = Right
+	i := 2
+	for i <= total {
+		for j := 0; j < movings; j++ {
+			currentRow, currentColumn = move(matrix, currentRow, currentColumn, i)
+			i++
+		}
+
+		move = move.Next()
+		calls++
+
+		if calls % 2 == 0 && currentRow != 0 {
+			movings++
+		}
+	}
+
+	return matrix
+}
