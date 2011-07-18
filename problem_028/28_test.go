@@ -36,3 +36,20 @@ func TestCanBuildMatrixOnlyForOddRowsAndCols(t *testing.T) {
 	BuildMatrix(4)
 }
 
+func TestCheckIfMatrixesEqual(t *testing.T) {
+	matrix1 := Matrix {
+		Row { 1, 2, 3, },
+		Row { 4, 5, 6, },
+		Row { 7, 8, 9, },
+	}
+
+	matrix2 := Matrix {
+		Row { 1, 2, 3, },
+		Row { 4, 5, 6, },
+		Row { 7, 8, 9, },
+	}
+
+	if !matrix1.Equal(matrix2) {
+		t.Errorf("The Equal method should consider the two matrixes equal.")
+	}
+}
