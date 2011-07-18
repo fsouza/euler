@@ -83,3 +83,14 @@ func TestBuildSpiralMatrix(t *testing.T) {
 		t.Errorf("Assertion error.\nExpected:\n%v\n\n\nGot:\n%v", expected, got)
 	}
 }
+
+func TestSumMatrixDiagonals(t *testing.T) {
+	matrix := BuildSpiralMatrix(5)
+
+	expected := 101
+	got := matrix.DiagonalsSum()
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	}
+}
+

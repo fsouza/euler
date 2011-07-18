@@ -41,6 +41,25 @@ func (m Matrix) String() (out string) {
 	return
 }
 
+func (m Matrix) DiagonalsSum() int {
+	middle := len(m) / 2
+	sum := m[middle][middle]
+
+	for i := 0; i < len(m); i++ {
+		if i != middle {
+			sum += m[i][i]
+		}
+	}
+
+	for i, j := 0, len(m) - 1; i < len(m) && j >= 0; i, j = i + 1, j - 1 {
+		if i != middle && j != middle {
+			sum += m[i][j]
+		}
+	}
+
+	return sum
+}
+
 func BuildMatrix(rows int) Matrix {
 	if rows % 2 == 0 {
 		panic("I can't build matrixes with even lines")
