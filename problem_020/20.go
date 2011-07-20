@@ -19,8 +19,7 @@ func Factorial(number int64) *big.Int {
 	factorial := big.NewInt(1)
 
 	for i := number; i >= 1; i-- {
-		scale := big.NewInt(i)
-		factorial.Mul(factorial, scale)
+		factorial.Mul(factorial, big.NewInt(i))
 	}
 
 	return factorial
