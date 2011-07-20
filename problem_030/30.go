@@ -39,6 +39,18 @@ func sumPowserFromTo(exponent, from, to int, ch chan<- int) {
 	ch <- sum
 }
 
+func getMinAndMax(perIteration, remainder, currentIteration int) (min, max int) {
+	if currentIteration == 0 {
+		min = 2
+		max = perIteration + remainder
+	} else {
+		min = perIteration + remainder + perIteration * (currentIteration - 1)
+		max = perIteration + remainder + perIteration * currentIteration
+	}
+
+	return
+}
+
 func SumOfPowersOfDigits(exponent int) (sum int) {
 	const (
 		CPUS = 4
@@ -51,15 +63,7 @@ func SumOfPowersOfDigits(exponent int) (sum int) {
 
 	ch := make(chan int, CPUS)
 	for i := 0; i < CPUS; i++ {
-		var min, max int
-		if i == 0 {
-			min = 2
-			max = perIteration + remainder
-		} else {
-			min = perIteration + remainder + perIteration * (i - 1)
-			max = perIteration + remainder + perIteration * i
-		}
-
+		min, max := getMinAndMax(perIteration, remainder, i)
 		go sumPowserFromTo(exponent, min, max, ch)
 	}
 
