@@ -53,7 +53,7 @@ func getMinAndMax(perIteration, remainder, currentIteration int) (min, max int) 
 
 func SumOfPowersOfDigits(exponent int) (sum int) {
 	const (
-		CPUS = 2
+		CPUS = 4
 		MAX = 9999999
 	)
 	oldMaxProcs := runtime.GOMAXPROCS(CPUS)
@@ -68,8 +68,7 @@ func SumOfPowersOfDigits(exponent int) (sum int) {
 	}
 
 	for i := 0; i < CPUS; i++ {
-		s := <-ch
-		sum += s
+		sum += <-ch
 	}
 
 	runtime.GOMAXPROCS(oldMaxProcs)
