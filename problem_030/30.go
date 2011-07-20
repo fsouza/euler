@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 )
 
@@ -35,4 +36,8 @@ func SumOfPowersOfDigits(exponent int) (sum int) {
 	}
 
 	return sum
+}
+
+func main() {
+	fmt.Println(SumOfPowersOfDigits(5))
 }
