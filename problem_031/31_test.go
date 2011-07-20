@@ -18,7 +18,7 @@ func TestWays(t *testing.T) {
 		expected := test.out
 		got := CalculateDifferentWays(test.in)
 		if expected != got {
-			t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+			t.Errorf("Assertion error.\nInput: %v.\nExpected: %v.\nGot: %v.", test.in, expected, got)
 		}
 	}
 }
