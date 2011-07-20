@@ -2,6 +2,7 @@ package main
 
 import (
 	"big"
+	"fmt"
 )
 
 func IsPresent(sequence []*big.Int, number *big.Int) bool {
@@ -36,4 +37,8 @@ func CountTermsInSequence(a, b int64) int {
 	}
 
 	return len(sequence)
+}
+
+func main() {
+	fmt.Println(CountTermsInSequence(100, 100))
 }
