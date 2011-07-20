@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 var coins = []int{ 1, 2, 5, 10, 20, 50, 100, 200, }
 
 func DivMod(divisor, numerator int) (int, int) {
@@ -28,4 +32,8 @@ func CalculateDifferentWays(value int) int {
 	}
 
 	return calculate(value, i)
+}
+
+func main() {
+	fmt.Println(CalculateDifferentWays(200))
 }
