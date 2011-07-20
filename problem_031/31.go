@@ -8,13 +8,5 @@ func DivMod(divisor, numerator int) (int, int) {
 
 func CalculateDifferentWays(value int) (total int) {
 	totalOfCoins := len(coins)
-
-	for i := totalOfCoins - 1; i >= 0; i-- {
-		div := value / coins[i]
-		if div > 0 {
-			total++
-		}
-	}
-
-	return
+	return totalOfCoins
 }
