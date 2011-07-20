@@ -4,14 +4,25 @@ import (
 	"strconv"
 )
 
-func SumDigits(number int) (sum int) {
-	digits := strconv.Itoa(number)
+func IntPow(base, exponent int) int {
+	result := base
 
-	for _, digit := range digits {
-		sum += digit - '0'
+	for i := 1; i < exponent; i++ {
+		result *= base
 	}
 
-	return sum
+	return result
+}
+
+func IsSumOfExponents(number, exponent int) bool {
+	digits := strconv.Itoa(number)
+	sum := 0
+
+	for _, digit := range digits {
+		sum += IntPow(digit - '0', exponent)
+	}
+
+	return sum == number
 }
 
 func SumOfPowersOfDigits(exponent int) int {
