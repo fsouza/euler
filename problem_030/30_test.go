@@ -35,3 +35,15 @@ func TestLenOfNumber(t *testing.T) {
 	}
 }
 
+func TestBuildLimitsForLength(t *testing.T) {
+	min, max := BuildLimitsForLength(4)
+	if min != 1000 {
+		t.Errorf("Expected mininum to be 1000, but was %v.", min)
+	}
+
+	if max != 9999 {
+		t.Errorf("Expected maximun to be 1000, but was %v.", max)
+	}
+}
+
+

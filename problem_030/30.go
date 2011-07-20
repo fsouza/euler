@@ -2,6 +2,7 @@ package main
 
 import (
 	"strconv"
+	"strings"
 )
 
 func IntPow(base, exponent int) int {
@@ -32,4 +33,16 @@ func LenOfNumber(number int) int {
 
 func SumOfPowersOfDigits(exponent int) (sum int) {
 	return sum
+}
+
+func BuildLimitsForLength(number int) (minimun, maximun int) {
+	minimun = 1
+	for i := 1; i < number; i++ {
+		minimun*= 10
+	}
+
+	maxString := strings.Repeat("9", number)
+	maximun, _ = strconv.Atoi(maxString)
+
+	return
 }
