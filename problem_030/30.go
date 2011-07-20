@@ -54,21 +54,20 @@ func getMinAndMax(perIteration, remainder, currentIteration int) (min, max int) 
 func SumOfPowersOfDigits(exponent int) (sum int) {
 	const (
 		CPUS = 2
-		ROUTINES = 4
 		MAX = 9999999
 	)
 	oldMaxProcs := runtime.GOMAXPROCS(CPUS)
 
-	perIteration := MAX / ROUTINES
-	remainder := MAX % ROUTINES
+	perIteration := MAX / CPUS
+	remainder := MAX % CPUS
 
-	ch := make(chan int, ROUTINES)
-	for i := 0; i < ROUTINES; i++ {
+	ch := make(chan int, CPUS)
+	for i := 0; i < CPUS; i++ {
 		min, max := getMinAndMax(perIteration, remainder, i)
 		go sumPowersFromTo(exponent, min, max, ch)
 	}
 
-	for i := 0; i < ROUTINES; i++ {
+	for i := 0; i < CPUS; i++ {
 		s := <-ch
 		sum += s
 	}
