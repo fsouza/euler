@@ -2,7 +2,6 @@ package main
 
 import (
 	"strconv"
-	"strings"
 )
 
 func IntPow(base, exponent int) int {
@@ -26,27 +25,10 @@ func IsSumOfExponents(number, exponent int) bool {
 	return sum == number
 }
 
-func LenOfNumber(number int) int {
-	digits := strconv.Itoa(number)
-	return len(digits)
-}
-
-func BuildLimitsForLength(number int) (minimun, maximun int) {
-	minimun = 1
-	for i := 1; i < number; i++ {
-		minimun*= 10
-	}
-
-	maxString := strings.Repeat("9", number)
-	maximun, _ = strconv.Atoi(maxString)
-
-	return
-}
-
 func SumOfPowersOfDigits(exponent int) (sum int) {
-	min, max := BuildLimitsForLength(exponent)
+	const MAX = 9999999
 
-	for i := min; i <= max; i++ {
+	for i := 2; i <= MAX; i++ {
 		if IsSumOfExponents(i, exponent) {
 			sum += i
 		}
@@ -54,4 +36,3 @@ func SumOfPowersOfDigits(exponent int) (sum int) {
 
 	return sum
 }
-
