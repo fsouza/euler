@@ -31,10 +31,6 @@ func LenOfNumber(number int) int {
 	return len(digits)
 }
 
-func SumOfPowersOfDigits(exponent int) (sum int) {
-	return sum
-}
-
 func BuildLimitsForLength(number int) (minimun, maximun int) {
 	minimun = 1
 	for i := 1; i < number; i++ {
@@ -46,3 +42,16 @@ func BuildLimitsForLength(number int) (minimun, maximun int) {
 
 	return
 }
+
+func SumOfPowersOfDigits(exponent int) (sum int) {
+	min, max := BuildLimitsForLength(exponent)
+
+	for i := min; i <= max; i++ {
+		if IsSumOfExponents(i, exponent) {
+			sum += i
+		}
+	}
+
+	return sum
+}
+
