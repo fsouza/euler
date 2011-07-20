@@ -2,6 +2,7 @@ package main
 
 import (
 	"strconv"
+	"strings"
 )
 
 func HasPandigitalProduct(multiplier, multiplicand int) bool {
@@ -14,6 +15,13 @@ func HasPandigitalProduct(multiplier, multiplicand int) bool {
 
 	if len(strMultiplier) < 2 || len(strMultiplicand) < 2 {
 		return false
+	}
+
+	both := strMultiplier + strMultiplicand
+	for _, number := range both {
+		if strings.Count(both, string(number)) > 1 {
+			return false
+		}
 	}
 
 	return true
