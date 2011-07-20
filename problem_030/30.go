@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"strconv"
 )
 
@@ -26,14 +27,48 @@ func IsSumOfExponents(number, exponent int) bool {
 	return sum == number
 }
 
-func SumOfPowersOfDigits(exponent int) (sum int) {
-	const MAX = 9999999
+func sumPowserFromTo(exponent, from, to int, ch chan<- int) {
+	sum := 0
 
-	for i := 2; i <= MAX; i++ {
+	for i := from; i < to; i++ {
 		if IsSumOfExponents(i, exponent) {
 			sum += i
 		}
 	}
+
+	ch <- sum
+}
+
+func SumOfPowersOfDigits(exponent int) (sum int) {
+	const (
+		CPUS = 4
+		MAX = 9999999
+	)
+	oldMaxProcs := runtime.GOMAXPROCS(CPUS)
+
+	perIteration := MAX / CPUS
+	remainder := MAX % CPUS
+
+	ch := make(chan int, CPUS)
+	for i := 0; i < CPUS; i++ {
+		var min, max int
+		if i == 0 {
+			min = 2
+			max = perIteration + remainder
+		} else {
+			min = perIteration + remainder + perIteration * (i - 1)
+			max = perIteration + remainder + perIteration * i
+		}
+
+		go sumPowserFromTo(exponent, min, max, ch)
+	}
+
+	for i := 0; i < CPUS; i++ {
+		s := <-ch
+		sum += s
+	}
+
+	runtime.GOMAXPROCS(oldMaxProcs)
 
 	return sum
 }
