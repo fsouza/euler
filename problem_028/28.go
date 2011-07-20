@@ -5,7 +5,6 @@ import (
 	"strconv"
 )
 
-type SetValue func(Matrix, int, int, int) (int, int)
 type Row []int
 type Matrix []Row
 
@@ -98,6 +97,8 @@ func Top(matrix Matrix, currentRow, currentColumn, value int) (int, int) {
 	matrix[currentRow][currentColumn] = value
 	return currentRow, currentColumn
 }
+
+type SetValue func(Matrix, int, int, int) (int, int)
 
 func (s SetValue) Next() SetValue {
 	if s == Right {
