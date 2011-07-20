@@ -25,6 +25,11 @@ func IsSumOfExponents(number, exponent int) bool {
 	return sum == number
 }
 
+func LenOfNumber(number int) int {
+	digits := strconv.Itoa(number)
+	return len(digits)
+}
+
 func SumOfPowersOfDigits(exponent int) int {
 	return 0
 }

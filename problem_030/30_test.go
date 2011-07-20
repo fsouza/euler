@@ -27,3 +27,11 @@ func TestSumOfPowersOfDigits(t *testing.T) {
 	}
 }
 
+func TestLenOfNumber(t *testing.T) {
+	expected := 5
+	got := LenOfNumber(12345)
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	}
+}
+
