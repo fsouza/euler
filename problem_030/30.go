@@ -27,7 +27,7 @@ func IsSumOfExponents(number, exponent int) bool {
 	return sum == number
 }
 
-func sumPowserFromTo(exponent, from, to int, ch chan<- int) {
+func sumPowersFromTo(exponent, from, to int, ch chan<- int) {
 	sum := 0
 
 	for i := from; i < to; i++ {
@@ -64,7 +64,7 @@ func SumOfPowersOfDigits(exponent int) (sum int) {
 	ch := make(chan int, CPUS)
 	for i := 0; i < CPUS; i++ {
 		min, max := getMinAndMax(perIteration, remainder, i)
-		go sumPowserFromTo(exponent, min, max, ch)
+		go sumPowersFromTo(exponent, min, max, ch)
 	}
 
 	for i := 0; i < CPUS; i++ {
