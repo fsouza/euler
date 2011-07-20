@@ -30,6 +30,6 @@ func LenOfNumber(number int) int {
 	return len(digits)
 }
 
-func SumOfPowersOfDigits(exponent int) int {
-	return 0
+func SumOfPowersOfDigits(exponent int) (sum int) {
+	return sum
 }
