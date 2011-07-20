@@ -35,4 +35,3 @@ func TestDivMod(t *testing.T) {
 		t.Errorf("Assertion error, expected mod to be %v, but was %v.", expectedMod, gotMod)
 	}
 }
-
