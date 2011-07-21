@@ -37,6 +37,11 @@ func HasPandigitalProduct(multiplier, multiplicand int) (int, bool) {
 	product := multiplier * multiplicand
 	all := strconv.Itoa(multiplier) + strconv.Itoa(multiplicand) + strconv.Itoa(product)
 	allBytes := []int(all)
+
+	if len(allBytes) != 9 {
+		return 0, false
+	}
+
 	sort.Ints(allBytes)
 	for i, number := range allBytes {
 		if number != sequence[i] {
