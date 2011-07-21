@@ -56,10 +56,12 @@ func HasPandigitalProduct(multiplier, multiplicand int) (int, bool) {
 func main() {
 	products := make([]int, 0)
 
-	for multiplier := 1; multiplier < 5000; multiplier++ {
-		for multiplicand := multiplier; multiplicand < 10000; multiplicand++ {
-			if product, ok := HasPandigitalProduct(multiplier, multiplicand); ok && !IsPresent(products, product) {
-				products = append(products, product)
+	for multiplier := 1; multiplier < 10000; multiplier++ {
+		for multiplicand := 1; multiplicand < 100; multiplicand++ {
+			if CanHavePandigitalProduct(multiplier, multiplicand) {
+				if product, ok := HasPandigitalProduct(multiplier, multiplicand); ok && !IsPresent(products, product) {
+					products = append(products, product)
+				}
 			}
 		}
 	}
