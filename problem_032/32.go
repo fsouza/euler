@@ -19,7 +19,7 @@ func HasPandigitalProduct(multiplier, multiplicand int) bool {
 
 	both := strMultiplier + strMultiplicand
 	for _, number := range both {
-		if strings.Count(both, string(number)) > 1 {
+		if number == '0' || strings.Count(both, string(number)) > 1 {
 			return false
 		}
 	}
