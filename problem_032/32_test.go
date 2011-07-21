@@ -42,4 +42,3 @@ func TestIsNotPandigitalSetIfThereIsAZero(t *testing.T) {
 		t.Errorf("%v x %v should not generate a pandigital product", 105, 234)
 	}
 }
-
