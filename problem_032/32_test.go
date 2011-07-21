@@ -48,3 +48,11 @@ func TestIsPandigitalWhenItsSequenceFrom1To9(t *testing.T) {
 		t.Errorf("%v x %v should generate a pandigital product", 39, 234)
 	}
 }
+
+func TestIsPresent(t *testing.T) {
+	slice := []int{ 1, 2, 3 }
+	if IsPresent(slice, 4) {
+		t.Errorf("%v should not be present in %v.", 4, slice)
+	}
+}
+

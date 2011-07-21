@@ -6,6 +6,16 @@ import (
 	"strings"
 )
 
+func IsPresent(numbers []int, value int) bool {
+	for _, number := range numbers {
+		if number == value {
+			return true
+		}
+	}
+
+	return false
+}
+
 func CanHavePandigitalProduct(multiplier, multiplicand int) bool {
 	strMultiplier := strconv.Itoa(multiplier)
 	strMultiplicand := strconv.Itoa(multiplicand)
