@@ -44,7 +44,7 @@ func TestIsNotPandigitalSetIfThereIsAZero(t *testing.T) {
 }
 
 func TestIsPandigitalWhenItsSequenceFrom1To9(t *testing.T) {
-	if !HasPandigitalProduct(39, 186) {
+	if _, ok := HasPandigitalProduct(39, 186); !ok {
 		t.Errorf("%v x %v should generate a pandigital product", 39, 234)
 	}
 }

@@ -38,7 +38,7 @@ func CanHavePandigitalProduct(multiplier, multiplicand int) bool {
 	return true
 }
 
-func HasPandigitalProduct(multiplier, multiplicand int) bool {
+func HasPandigitalProduct(multiplier, multiplicand int) (int, bool) {
 	sequence := []int{ '1', '2', '3', '4', '5', '6', '7', '8', '9', }
 
 	product := multiplier * multiplicand
@@ -47,9 +47,9 @@ func HasPandigitalProduct(multiplier, multiplicand int) bool {
 	sort.Ints(allBytes)
 	for i, number := range allBytes {
 		if number != sequence[i] {
-			return false
+			return 0, false
 		}
 	}
 
-	return true
+	return product, true
 }
