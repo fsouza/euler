@@ -48,4 +48,3 @@ func TestIsPandigitalWhenItsSequenceFrom1To9(t *testing.T) {
 		t.Errorf("%v x %v should generate a pandigital product", 39, 234)
 	}
 }
-
