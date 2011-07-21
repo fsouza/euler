@@ -17,18 +17,11 @@ func IsPresent(numbers []int, value int) bool {
 }
 
 func CanHavePandigitalProduct(multiplier, multiplicand int) bool {
-	strMultiplier := strconv.Itoa(multiplier)
-	strMultiplicand := strconv.Itoa(multiplicand)
-
-	if len(strMultiplier) < 3 && len(strMultiplicand) < 3 {
+	both := strconv.Itoa(multiplier) + strconv.Itoa(multiplicand)
+	if len(both) != 5 {
 		return false
 	}
 
-	if len(strMultiplier) < 2 || len(strMultiplicand) < 2 {
-		return false
-	}
-
-	both := strMultiplier + strMultiplicand
 	for _, number := range both {
 		if number == '0' || strings.Count(both, string(number)) > 1 {
 			return false
