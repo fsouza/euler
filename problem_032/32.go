@@ -41,10 +41,6 @@ func CanHavePandigitalProduct(multiplier, multiplicand int) bool {
 func HasPandigitalProduct(multiplier, multiplicand int) bool {
 	sequence := []int{ '1', '2', '3', '4', '5', '6', '7', '8', '9', }
 
-	if !CanHavePandigitalProduct(multiplier, multiplicand) {
-		return false
-	}
-
 	product := multiplier * multiplicand
 	all := strconv.Itoa(multiplier) + strconv.Itoa(multiplicand) + strconv.Itoa(product)
 	allBytes := []int(all)
