@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -50,4 +51,22 @@ func HasPandigitalProduct(multiplier, multiplicand int) (int, bool) {
 	}
 
 	return product, true
+}
+
+func main() {
+	products := make([]int, 0)
+
+	for multiplier := 1; multiplier < 5000; multiplier++ {
+		for multiplicand := multiplier; multiplicand < 10000; multiplicand++ {
+			if product, ok := HasPandigitalProduct(multiplier, multiplicand); ok && !IsPresent(products, product) {
+				products = append(products, product)
+			}
+		}
+	}
+
+	sum := 0
+	for _, product := range products {
+		sum += product
+	}
+	fmt.Println(sum)
 }
