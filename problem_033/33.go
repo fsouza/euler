@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 )
 
@@ -25,4 +26,19 @@ func IsNonTrivial(numerator, denominator int) bool {
 	}
 
 	return false
+}
+
+func main() {
+	numeratorMultiply, denominatorMultiply := 1, 1
+
+	for numerator := 10; numerator < 100; numerator++ {
+		for denominator := numerator + 1; denominator < 100; denominator++ {
+			if IsNonTrivial(numerator, denominator) {
+				numeratorMultiply *= numerator
+				denominatorMultiply *= denominator
+			}
+		}
+	}
+
+	fmt.Println(denominatorMultiply / numeratorMultiply)
 }
