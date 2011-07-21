@@ -10,6 +10,8 @@ type IsNonTrivialTest struct {
 }
 
 var	IsNonTrivialTests = []IsNonTrivialTest {
+	IsNonTrivialTest{ 10, 10, false, },
+	IsNonTrivialTest{ 11, 11, false, },
 	IsNonTrivialTest{ 30, 50, false, },
 	IsNonTrivialTest{ 49, 98, true, },
 }

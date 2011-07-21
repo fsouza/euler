@@ -5,6 +5,10 @@ import (
 )
 
 func IsNonTrivial(numerator, denominator int) bool {
+	if numerator == denominator {
+		return false
+	}
+
 	strNumerator := strconv.Itoa(numerator)
 	strDenominator := strconv.Itoa(denominator)
 
