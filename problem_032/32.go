@@ -6,8 +6,7 @@ import (
 	"strings"
 )
 
-func HasPandigitalProduct(multiplier, multiplicand int) bool {
-	sequence := []int{ '1', '2', '3', '4', '5', '6', '7', '8', '9', }
+func CanHavePandigitalProduct(multiplier, multiplicand int) bool {
 	strMultiplier := strconv.Itoa(multiplier)
 	strMultiplicand := strconv.Itoa(multiplicand)
 
@@ -26,9 +25,18 @@ func HasPandigitalProduct(multiplier, multiplicand int) bool {
 		}
 	}
 
+	return true
+}
+
+func HasPandigitalProduct(multiplier, multiplicand int) bool {
+	sequence := []int{ '1', '2', '3', '4', '5', '6', '7', '8', '9', }
+
+	if !CanHavePandigitalProduct(multiplier, multiplicand) {
+		return false
+	}
+
 	product := multiplier * multiplicand
-	strProduct := strconv.Itoa(product)
-	all := both + strProduct
+	all := strconv.Itoa(multiplier) + strconv.Itoa(multiplicand) + strconv.Itoa(product)
 	allBytes := []int(all)
 	sort.Ints(allBytes)
 	for i, number := range allBytes {
