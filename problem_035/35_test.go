@@ -10,6 +10,7 @@ type IsCircularTest struct {
 }
 
 var IsCircularTests = []IsCircularTest {
+	IsCircularTest{ 7, true, },
 	IsCircularTest{ 17, true, },
 	IsCircularTest{ 19, false, },
 	IsCircularTest{ 23, false, },
