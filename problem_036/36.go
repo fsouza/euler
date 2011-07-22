@@ -27,3 +27,9 @@ func ToBinary(number int) string {
 
 	return string(Reverse(digits))
 }
+
+func IsTheSameReversed(s string) bool {
+	digits := []int(s)
+	reversed := Reverse(digits)
+	return s == string(reversed)
+}

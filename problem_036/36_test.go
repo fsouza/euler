@@ -45,3 +45,11 @@ func TestDivMod(t *testing.T) {
 		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expectedMod, gotMod)
 	}
 }
+
+func TestIsTheSameReversed(t *testing.T) {
+	expected := true
+	got := IsTheSameReversed("asa")
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	}
+}
