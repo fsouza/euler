@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 )
 
@@ -66,4 +67,8 @@ func CountCircularPrimes(limit float64) int {
 	}
 
 	return count
+}
+
+func main() {
+	fmt.Println(CountCircularPrimes(1000000))
 }
