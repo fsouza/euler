@@ -7,6 +7,20 @@ func Reverse(slice []int) []int {
 		slice[i], slice[length - i - 1] = slice[length - i - 1], slice[i]
 	}
 
+	cut := 0
+
+	for _, item := range slice {
+		if item == 0 {
+			cut++
+		} else {
+			break
+		}
+	}
+
+	if cut > 0 {
+		slice = slice[cut:]
+	}
+
 	return slice
 }
 

@@ -4,12 +4,22 @@ import (
 	"testing"
 )
 
+type ReverseTest struct {
+	in, out []int
+}
+
+var ReverseTests = []ReverseTest{
+	ReverseTest{ []int{ 48, 49, 50, }, []int{ 50, 49, 48, } },
+	ReverseTest{ []int{ 48, 49, 0, }, []int{ 49, 48, } },
+}
+
 func TestReverse(t *testing.T) {
-	expected := "123"
-	out := Reverse([]int("321"))
-	got := string(out)
-	if expected != got {
-		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	for _, test := range ReverseTests {
+		expected := test.out
+		got := Reverse(test.in)
+		if string(expected) != string(got) {
+			t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+		}
 	}
 }
 
