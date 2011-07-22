@@ -48,6 +48,10 @@ func Truncate(number int, from string) int {
 }
 
 func IsTruncatable(number int, primes []int) bool {
+	if number < 10 {
+		return false
+	}
+
 	operations := []string{"right", "left"}
 	for _, operation := range operations {
 		copyNumber := number
