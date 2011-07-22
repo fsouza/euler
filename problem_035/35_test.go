@@ -15,6 +15,7 @@ var IsCircularTests = []IsCircularTest {
 	IsCircularTest{ 19, false, },
 	IsCircularTest{ 23, false, },
 	IsCircularTest{ 40, false, },
+	IsCircularTest{ 101, false, },
 	IsCircularTest{ 197, true, },
 }
 
@@ -42,8 +43,8 @@ func TestBuildPrimesList(t *testing.T) {
 
 
 func TestRotate(t *testing.T) {
-	expected := 971
-	got := Rotate(197)
+	expected := "971"
+	got := Rotate("197")
 	if expected != got {
 		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
 	}

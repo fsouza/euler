@@ -14,23 +14,24 @@ func IsPresent(slice []int, number int) bool {
 	return false
 }
 
-func Rotate(number int) int {
-	numberDigits := []int(strconv.Itoa(number))
-	length := len(numberDigits)
+func Rotate(s string ) string {
+	digits := []int(s)
+	length := len(digits)
 
-	the_digit := numberDigits[0]
+	the_digit := digits[0]
 	for i := length - 1; i >= 0; i-- {
-		the_digit, numberDigits[i] = numberDigits[i], the_digit
+		the_digit, digits[i] = digits[i], the_digit
 	}
 
-	newNumber, _ := strconv.Atoi(string(numberDigits))
-	return newNumber
+	return string(digits)
 }
 
 func IsCircular(number int, primes []int) bool {
-	rotated := Rotate(number)
-	for rotated != number {
-		if !IsPresent(primes, rotated) {
+	strNumber := strconv.Itoa(number)
+	rotated := Rotate(strNumber)
+	for rotated != strNumber {
+		rotatedNumber, _ := strconv.Atoi(rotated)
+		if !IsPresent(primes, rotatedNumber) {
 			return false
 		}
 		rotated = Rotate(rotated)
