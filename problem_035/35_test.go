@@ -19,14 +19,27 @@ var IsCircularTests = []IsCircularTest {
 }
 
 func TestIsCircular(t *testing.T) {
+	primes := BuildPrimesList(1000)
+
 	for _, test := range IsCircularTests {
 		expected := test.out
-		got := IsCircular(test.in)
+		got := IsCircular(test.in, primes)
 		if expected != got {
 			t.Errorf("Assertion error.\nExpected %v to be circular? %v.\nGot: %v.", test.in, expected, got)
 		}
 	}
 }
+
+func TestBuildPrimesList(t *testing.T) {
+	expected := []int{2, 3, 5, 7}
+	got := BuildPrimesList(10)
+	for i, prime := range got {
+		if prime != expected[i] {
+			t.Errorf("The primes list was built wrong")
+		}
+	}
+}
+
 
 func TestRotate(t *testing.T) {
 	expected := 971
@@ -35,3 +48,12 @@ func TestRotate(t *testing.T) {
 		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
 	}
 }
+
+func TestIsPresent(t *testing.T) {
+	expected := true
+	got := IsPresent([]int{ 1, 2, 3}, 3)
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	}
+}
+

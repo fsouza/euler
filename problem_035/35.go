@@ -4,27 +4,14 @@ import (
 	"strconv"
 )
 
-func IsPrime(number int) bool {
-	if number < 0 {
-		number *= -1
-	}
-
-	if number < 4 {
-		return true
-	}
-
-	if number % 2 == 0 {
-		return false
-	}
-
-	count := 0
-	for i := 5; i < number; i += 2 {
-		if number % i == 0 {
-			count++
+func IsPresent(slice []int, number int) bool {
+	for _, element := range slice {
+		if element == number {
+			return true
 		}
 	}
 
-	return count == 0
+	return false
 }
 
 func Rotate(number int) int {
@@ -40,14 +27,29 @@ func Rotate(number int) int {
 	return newNumber
 }
 
-func IsCircular(number int) bool {
+func IsCircular(number int, primes []int) bool {
 	rotated := Rotate(number)
 	for rotated != number {
-		if !IsPrime(rotated) {
+		if !IsPresent(primes, rotated) {
 			return false
 		}
 		rotated = Rotate(rotated)
 	}
 
 	return true
+}
+
+func BuildPrimesList(limit float64) []int {
+	primes := make([]int, 0)
+	primesCh := GetPrimes(limit)
+	
+	for prime := range primesCh {
+		if prime == 0 {
+			break
+		}
+
+		primes = append(primes, prime)
+	}
+
+	return primes
 }
