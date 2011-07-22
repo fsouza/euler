@@ -57,3 +57,12 @@ func TestIsPresent(t *testing.T) {
 		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
 	}
 }
+
+func TestCountCircularPrimes(t *testing.T) {
+	expected := 13
+	got := CountCircularPrimes(100)
+	if expected != got {
+		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
+	}
+}
+

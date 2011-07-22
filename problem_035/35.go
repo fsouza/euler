@@ -54,3 +54,16 @@ func BuildPrimesList(limit float64) []int {
 
 	return primes
 }
+
+func CountCircularPrimes(limit float64) int {
+	count := 0
+	primes := BuildPrimesList(limit)
+
+	for _, prime := range primes {
+		if IsCircular(prime, primes) {
+			count++
+		}
+	}
+
+	return count
+}
