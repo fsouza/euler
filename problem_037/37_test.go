@@ -21,20 +21,3 @@ func TestTruncate(t *testing.T) {
 	}
 }
 
-
-func TestTruncateRight(t *testing.T) {
-	expected := 123
-	got := TruncateRight(1234)
-	if expected != got {
-		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
-	}
-}
-
-func TestTruncateLeft(t *testing.T) {
-	expected := 234
-	got := TruncateLeft(1234)
-	if expected != got {
-		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
-	}
-}
-

@@ -47,19 +47,11 @@ func Truncate(number int, from string) int {
 	return newNumber
 }
 
-func TruncateRight(number int) int {
-	return Truncate(number, "right")
-}
-
-func TruncateLeft(number int) int {
-	return Truncate(number, "left")
-}
-
 func IsTruncatable(number int, primes []int) bool {
 	operations := []string{"right", "left"}
 	for _, operation := range operations {
 		copyNumber := number
-		for copyNumber = Truncate(copyNumber, operation); copyNumber != 0; copyNumber = TruncateRight(copyNumber) {
+		for copyNumber = Truncate(copyNumber, operation); copyNumber != 0; copyNumber = Truncate(copyNumber, operation) {
 			if !IsPresent(primes, copyNumber) {
 				return false
 			}
