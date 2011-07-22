@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"strconv"
+)
+
 func Reverse(slice []int) []int {
 	length, half := len(slice), len(slice) / 2
 
@@ -46,4 +51,16 @@ func IsTheSameReversed(s string) bool {
 	digits := []int(s)
 	reversed := Reverse(digits)
 	return s == string(reversed)
+}
+
+func main() {
+	sum := 1
+	for i := 2; i <= 1000000; i++ {
+		strNumber := strconv.Itoa(i)
+		if IsTheSameReversed(strNumber) && IsTheSameReversed(ToBinary(i)) {
+			sum += i
+		}
+	}
+
+	fmt.Println(sum)
 }
