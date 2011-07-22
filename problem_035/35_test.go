@@ -56,4 +56,3 @@ func TestIsPresent(t *testing.T) {
 		t.Errorf("Assertion error.\nExpected: %v.\nGot: %v.", expected, got)
 	}
 }
-
