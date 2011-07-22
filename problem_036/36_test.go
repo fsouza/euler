@@ -9,8 +9,14 @@ type ReverseTest struct {
 }
 
 var ReverseTests = []ReverseTest{
-	ReverseTest{ []int{ 48, 49, 50, }, []int{ 50, 49, 48, } },
-	ReverseTest{ []int{ 48, 49, 0, }, []int{ 49, 48, } },
+	ReverseTest{
+		[]int{ 48, 49, 50, },
+		[]int{ 50, 49, 48, },
+	},
+	ReverseTest{
+		[]int{ 48, 49, 0, },
+		[]int{ 49, 48, },
+	},
 }
 
 func TestReverse(t *testing.T) {
