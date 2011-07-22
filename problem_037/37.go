@@ -82,7 +82,6 @@ func main() {
 		}
 	}
 
-	fmt.Println(truncatables)
 	sum := 0
 	for _, truncatable := range truncatables {
 		sum += truncatable
