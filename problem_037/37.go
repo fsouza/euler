@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 )
 
@@ -63,4 +64,28 @@ func IsTruncatable(number int, primes []int) bool {
 	}
 
 	return true
+}
+
+func main() {
+	truncatables := make([]int, 11)
+	truncatablesCount := 0
+	primes := BuildPrimesList(1000000)
+
+	for _, prime := range primes {
+		if IsTruncatable(prime, primes) {
+			truncatables[truncatablesCount] = prime
+			truncatablesCount++
+		}
+
+		if truncatablesCount > 10 {
+			break
+		}
+	}
+
+	fmt.Println(truncatables)
+	sum := 0
+	for _, truncatable := range truncatables {
+		sum += truncatable
+	}
+	fmt.Println(sum)
 }
