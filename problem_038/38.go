@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"strconv"
 	"sort"
 )
 
@@ -20,4 +22,15 @@ func IsPandigital(input string) bool {
 	}
 
 	return false
+}
+
+func main() {
+	stop := false
+	for i := 9876; !stop && i > 9123; i-- {
+		number := strconv.Itoa(i) + strconv.Itoa(i * 2)
+		if IsPandigital(number) {
+			fmt.Println(number)
+			stop = true
+		}
+	}
 }
