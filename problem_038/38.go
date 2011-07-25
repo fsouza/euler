@@ -25,12 +25,11 @@ func IsPandigital(input string) bool {
 }
 
 func main() {
-	stop := false
-	for i := 9876; !stop && i > 9123; i-- {
+	for i := 9876; i > 9123; i-- {
 		number := strconv.Itoa(i) + strconv.Itoa(i * 2)
 		if IsPandigital(number) {
 			fmt.Println(number)
-			stop = true
+			break
 		}
 	}
 }
