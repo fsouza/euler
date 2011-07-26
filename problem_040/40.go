@@ -6,6 +6,10 @@ import (
 )
 
 func BuildSequence(position int) string {
+	if position < 10 {
+		return strconv.Itoa(position)
+	}
+
 	var fractional string
 	digits := make([]string, 0)
 
@@ -19,8 +23,5 @@ func BuildSequence(position int) string {
 
 func FindNthDigit(position int) uint8 {
 	fractional := BuildSequence(position)
-	return fractional[position] - '0'
-}
-
-func main() {
+	return fractional[position - 1] - '0'
 }
