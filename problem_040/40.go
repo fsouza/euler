@@ -2,20 +2,16 @@ package main
 
 import (
 	"strconv"
-	"strings"
 )
 
-func BuildSequence(position int) string {
-	if position < 10 {
-		return strconv.Itoa(position)
+func BuildSequence(limit int) string {
+	if limit < 10 {
+		return strconv.Itoa(limit)
 	}
-
 	var fractional string
-	digits := make([]string, 0)
 
-	for number := 1; len(fractional) < position; number++ {
-		digits = append(digits, strconv.Itoa(number))
-		fractional = strings.Join(digits, "")
+	for number := 1; len(fractional) < limit; number++ {
+		fractional += strconv.Itoa(number)
 	}
 
 	return fractional
