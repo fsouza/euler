@@ -11,6 +11,7 @@ type IsPandigitalTest struct {
 
 var	IsPandigitalTests = []IsPandigitalTest{
 	IsPandigitalTest{2134, true},
+	IsPandigitalTest{2345, false},
 	IsPandigitalTest{2445, false},
 	IsPandigitalTest{123456789, true},
 }

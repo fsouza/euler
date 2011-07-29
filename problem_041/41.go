@@ -10,7 +10,7 @@ func IsPandigital(number int) bool {
 	sort.Ints(digits)
 
 	sequence := make([]int, len(digits))
-	for i, counter := digits[0], 0; i < digits[0] + len(digits); i, counter = i + 1, counter + 1 {
+	for i, counter := '1', 0; i < len(digits) + '1'; i, counter = i + 1, counter + 1 {
 		sequence[counter] = i
 	}
 
