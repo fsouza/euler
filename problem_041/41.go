@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"sort"
 	"strconv"
 )
@@ -21,4 +22,20 @@ func IsPandigital(number int) bool {
 	}
 
 	return true
+}
+
+func main() {
+	max := 0
+	primes := GetPrimes(10000000)
+	for prime := range primes {
+		if prime == 0 {
+			break
+		}
+
+		if IsPandigital(prime) && prime > max {
+			max = prime
+		}
+	}
+
+	fmt.Println(max)
 }
