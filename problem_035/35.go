@@ -44,7 +44,7 @@ func IsCircular(number int, primes []int) bool {
 func BuildPrimesList(limit float64) []int {
 	primes := make([]int, 0)
 	primesCh := GetPrimes(limit)
-	
+
 	for prime := range primesCh {
 		if prime == 0 {
 			break
