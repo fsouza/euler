@@ -1,9 +1,15 @@
 package main
 
+import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+)
+
 func CountLetterNumbers(word string) (sum int) {
 	for _, c := range word {
 		if c >= 'A' && c <= 'Z' {
-			sum += int(c - 'A' + 1)
+			sum += c - 'A' + 1
 		}
 	}
 
@@ -35,4 +41,19 @@ func IsPresent(collection []int, item int) bool {
 func IsTriangleWord(word string, triangleList []int) bool {
 	wordValue := CountLetterNumbers(word)
 	return IsPresent(triangleList, wordValue)
+}
+
+func main() {
+	if bytes, err := ioutil.ReadFile("words.txt"); err == nil {
+		count := 0
+		trianglesList := BuildListOfTriangleNumbers(230)
+		words := strings.Split(string(bytes), ",")
+		for _, word := range words {
+			if IsTriangleWord(word, trianglesList) {
+				count++
+			}
+		}
+
+		fmt.Println(count)
+	}
 }
