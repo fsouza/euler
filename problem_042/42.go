@@ -21,3 +21,18 @@ func BuildListOfTriangleNumbers(limit int) []int {
 	}
 	return list
 }
+
+func IsPresent(collection []int, item int) bool {
+	for _, element := range collection {
+		if item == element {
+			return true
+		}
+	}
+
+	return false
+}
+
+func IsTriangleWord(word string, triangleList []int) bool {
+	wordValue := CountLetterNumbers(word)
+	return IsPresent(triangleList, wordValue)
+}
