@@ -8,7 +8,7 @@ import (
 func SumDigits(number uint64) uint64 {
 	var sum uint64
 
-	digits := strconv.Uitoa64(number)
+	digits := strconv.FormatUint(number, 10)
 	for _, digit := range digits {
 		sum += uint64(digit - '0')
 	}
@@ -19,7 +19,7 @@ func SumDigits(number uint64) uint64 {
 func Pow(base, exponent uint64) uint64 {
 	product := base
 
-	for i := uint64(0); i < exponent - 1; i++ {
+	for i := uint64(0); i < exponent-1; i++ {
 		product *= base
 	}
 

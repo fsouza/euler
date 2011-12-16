@@ -1,8 +1,8 @@
 package main
 
 import (
-	"big"
 	"fmt"
+	"math/big"
 )
 
 func IsPresent(sequence []*big.Int, number *big.Int) bool {

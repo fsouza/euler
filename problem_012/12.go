@@ -12,18 +12,18 @@ func GetPrimeFactors(number int) (*vector.IntVector, *vector.IntVector) {
 
 	primesChannel := GetPrimes()
 	result := number
-	for  {
+	for {
 		prime := <-primesChannel
 
 		if number < prime {
 			break
 		}
 
-		if result % prime == 0 {
+		if result%prime == 0 {
 			numbers.Push(prime)
 			count := 1
 
-			for result = result / prime; result % prime == 0; result = result / prime {
+			for result = result / prime; result%prime == 0; result = result / prime {
 				count++
 			}
 
@@ -45,22 +45,22 @@ func CountDivisors(number int) int {
 	return count
 }
 
-func FindTriangleNumberAt(index int, cache map[int] int) int {
+func FindTriangleNumberAt(index int, cache map[int]int) int {
 	_, foundOnCache := cache[index]
 	if !foundOnCache {
 		if index == 1 {
 			return index
 		}
 
-		cache[index] = index + FindTriangleNumberAt(index - 1, cache)
-		cache[index - 1] = 0, false
+		cache[index] = index + FindTriangleNumberAt(index-1, cache)
+		delete(cache, index-1)
 	}
 
 	return cache[index]
 }
 
 func FindFirstNumberToOverLimit(limit int) int {
-	triangleCache := make(map[int] int)
+	triangleCache := make(map[int]int)
 
 	minimum := int(math.Pow(float64(limit), 2))
 	for i := 1; ; i++ {

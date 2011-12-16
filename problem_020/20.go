@@ -1,8 +1,8 @@
 package main
 
 import (
-	"big"
 	"fmt"
+	"math/big"
 )
 
 func SumDigitsOf(number *big.Int) int {

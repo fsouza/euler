@@ -1,19 +1,19 @@
 package main
 
 import (
-	"big"
+	"math/big"
 	"testing"
 )
 
 type FibonacciTest struct {
-	in int64
+	in  int64
 	out *big.Int
 }
 
 var FibonacciTests = []FibonacciTest{
-	FibonacciTest{ 3, big.NewInt(2) },
-	FibonacciTest{ 7, big.NewInt(13) },
-	FibonacciTest{ 9, big.NewInt(34) },
+	FibonacciTest{3, big.NewInt(2)},
+	FibonacciTest{7, big.NewInt(13)},
+	FibonacciTest{9, big.NewInt(34)},
 }
 
 func TestFibonacci(t *testing.T) {

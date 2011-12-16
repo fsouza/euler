@@ -6,7 +6,7 @@ import (
 )
 
 func SumDigitsOf(number uint) uint {
-	digits := strconv.Uitoa(number)
+	digits := strconv.FormatUint(uint64(number), 10)
 	sum := uint(0)
 	for _, digit := range digits {
 		sum += uint(digit - '0')
@@ -16,7 +16,7 @@ func SumDigitsOf(number uint) uint {
 }
 
 func SliceDigits(number, length uint) string {
-	digits := strconv.Uitoa(number)
+	digits := strconv.FormatUint(uint64(number), 10)
 	return digits[:length]
 }
 

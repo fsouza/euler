@@ -1,8 +1,8 @@
 package main
 
 import (
-	"big"
 	"fmt"
+	"math/big"
 	"strconv"
 )
 
@@ -26,8 +26,8 @@ func main() {
 	sum := int64(0)
 	for i := int64(10); i < 50000; i++ {
 		factorialSum := int64(0)
-		for _, digit := range strconv.Itoa64(i) {
-			factorialSum += factorials[digit - '0'].Int64()
+		for _, digit := range strconv.FormatInt(i, 10) {
+			factorialSum += factorials[digit-'0'].Int64()
 		}
 
 		if factorialSum == i {

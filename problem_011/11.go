@@ -14,7 +14,7 @@ func ConvertGridToString(grid *vector.Vector) string {
 		line := lineInterface.(*vector.IntVector)
 		for j, number := range *line {
 			format = "%d"
-			if j + 1 != line.Len() {
+			if j+1 != line.Len() {
 				format += " "
 			}
 
@@ -31,12 +31,12 @@ func ConvertGridToString(grid *vector.Vector) string {
 
 func ReadGridFromString(input string) *vector.Vector {
 	grid := new(vector.Vector)
-	lines := strings.Split(input, "\n", -1)
+	lines := strings.Split(input, "\n")
 
 	for _, line := range lines {
 		lineVector := new(vector.IntVector)
 
-		numbers := strings.Split(line, " ", -1)
+		numbers := strings.Split(line, " ")
 		for _, number := range numbers {
 			number, _ := strconv.Atoi(number)
 			lineVector.Push(number)
@@ -55,9 +55,9 @@ func GridProduct(grid *vector.Vector, elements int) uint {
 	for _, lineInterface := range *grid {
 		line := lineInterface.(*vector.IntVector)
 		lineLength = line.Len()
-		for i := 0; i < line.Len() - elements + 1; i++ {
+		for i := 0; i < line.Len()-elements+1; i++ {
 			product = 1
-			for j := i; j < i + elements; j++ {
+			for j := i; j < i+elements; j++ {
 				product *= uint(line.At(j))
 			}
 
@@ -68,9 +68,9 @@ func GridProduct(grid *vector.Vector, elements int) uint {
 	}
 
 	for i := 0; i < lineLength; i++ {
-		for j := 0; j < grid.Len() - elements + 1; j++ {
+		for j := 0; j < grid.Len()-elements+1; j++ {
 			product = 1
-			for k := j; k < j + elements; k++ {
+			for k := j; k < j+elements; k++ {
 				line := grid.At(k).(*vector.IntVector)
 				product *= uint(line.At(i))
 			}
@@ -81,12 +81,12 @@ func GridProduct(grid *vector.Vector, elements int) uint {
 		}
 	}
 
-	for i := 0; i < grid.Len() - elements + 1; i++ {
+	for i := 0; i < grid.Len()-elements+1; i++ {
 		line := grid.At(i).(*vector.IntVector)
-		for j := 0; j < line.Len() - elements + 1; j++ {
+		for j := 0; j < line.Len()-elements+1; j++ {
 			l := j
 			product = 1
-			for k := i; k < i + 4; k++ {
+			for k := i; k < i+4; k++ {
 				product *= uint(grid.At(k).(*vector.IntVector).At(l))
 				l++
 			}
@@ -97,12 +97,12 @@ func GridProduct(grid *vector.Vector, elements int) uint {
 		}
 	}
 
-	for i := grid.Len() - 1; i >= elements - 1; i-- {
+	for i := grid.Len() - 1; i >= elements-1; i-- {
 		line := grid.At(i).(*vector.IntVector)
-		for j := 0; j < line.Len() - elements + 1; j++ {
+		for j := 0; j < line.Len()-elements+1; j++ {
 			l := j
 			product = 1
-			for k := i; k > i - 4; k-- {
+			for k := i; k > i-4; k-- {
 				product *= uint(grid.At(k).(*vector.IntVector).At(l))
 				l++
 			}

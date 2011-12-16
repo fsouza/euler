@@ -1,8 +1,8 @@
 package main
 
 import (
-	"big"
 	"fmt"
+	"math/big"
 )
 
 func Fibonacci(number int64) *big.Int {
@@ -17,6 +17,8 @@ func Fibonacci(number int64) *big.Int {
 
 func main() {
 	number := int64(0)
-	for len(Fibonacci(number).String()) < 1000 { number++ }
+	for len(Fibonacci(number).String()) < 1000 {
+		number++
+	}
 	fmt.Println(number)
 }

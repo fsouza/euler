@@ -1,12 +1,12 @@
 package main
 
 import (
-	"big"
+	"math/big"
 	"testing"
 )
 
 type FactorialTest struct {
-	in int64
+	in  int64
 	out *big.Int
 }
 

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"big"
+	"math/big"
 	"testing"
 )
 
@@ -14,7 +14,6 @@ func TestIsPresent(t *testing.T) {
 	}
 }
 
-
 func TestAddToSequence(t *testing.T) {
 	sequence := make([]*big.Int, 0)
 	sequence = AddToSequence(sequence, big.NewInt(0), big.NewInt(1))
@@ -24,7 +23,6 @@ func TestAddToSequence(t *testing.T) {
 		t.Errorf("Length of sequence should be 2, but was %d.", len(sequence))
 	}
 }
-
 
 func TestFindTermsCountInSequence(t *testing.T) {
 	expected := 15
